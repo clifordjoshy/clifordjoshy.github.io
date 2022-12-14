@@ -32,21 +32,13 @@ enableEmoji = true
     name = "projects"
     url = "/projects/"
     title = ""
-  # [[menu.main]]
-  #   weight = 3
-  #   identifier = "tags"
-  #   pre = ""
-  #   post = ""
-  #   name = "Tags"
-  #   url = "/tags/"
-  #   title = ""
   [[menu.main]]
     weight = 3
     identifier = "resume"
     pre = ""
     post = '<i class="fa fa-external-link" aria-hidden="true"></i>'
     name = "resume"
-    url = "#"
+    url = "/resume.pdf"
     title = ""
 
 [params]
