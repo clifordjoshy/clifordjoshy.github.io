@@ -20,24 +20,32 @@ enableEmoji = true
     pre = ""
     # you can add extra information after the name (HTML format is supported), such as icons
     post = ""
-    name = "Posts"
+    name = "posts"
     url = "/posts/"
     # title will be shown when you hover on this menu link
     title = ""
   [[menu.main]]
     weight = 2
-    identifier = "tags"
+    identifier = "projects"
     pre = ""
     post = ""
-    name = "Tags"
-    url = "/tags/"
+    name = "projects"
+    url = "/projects/"
     title = ""
+  # [[menu.main]]
+  #   weight = 3
+  #   identifier = "tags"
+  #   pre = ""
+  #   post = ""
+  #   name = "Tags"
+  #   url = "/tags/"
+  #   title = ""
   [[menu.main]]
     weight = 3
-    identifier = "Resume"
+    identifier = "resume"
     pre = ""
-    post = '<i class="arrow-up-right-from-square"/>' #fontawesome icon
-    name = "Resume"
+    post = '<i class="fa fa-external-link" aria-hidden="true"></i>'
+    name = "resume"
     url = "#"
     title = ""
 
@@ -45,11 +53,12 @@ enableEmoji = true
   defaultTheme = "dark"
   # public git repo url only then enableGitInfo is true
   gitRepo = "https://github.com/clifordjoshy/clifordjoshy.github.io"
+  dateFormat = "January 2, 2006"
   # website title for Open Graph and Twitter Cards
-  title = "Random Ramblings"
-  description = "This is where i will randomly ramble."
+  # title = "Random Ramblings"
+  # description = "This is where i will randomly ramble."
   # website images for Open Graph and Twitter Cards
-  images = ["/logo.png"]
+  # images = ["/logo.png"]
 	  # Header config
   [params.header]
     # LoveIt NEW | 0.2.0 Header title config
@@ -57,11 +66,15 @@ enableEmoji = true
       # URL of the LOGO
       logo = ""
       # title name
-      name = "cliford's blog"
+      name = "cj's blog"
       # you can add extra information before the name (HTML format is supported), such as icons
-      pre = ""
+      pre = '<i class="fa-solid fa-laptop-code"></i>'
       # you can add extra information after the name (HTML format is supported), such as icons
       post = ""
+
+  [params.page]
+    [params.page.share]
+      enable = false
 
 # Footer config
   [params.footer]
@@ -86,15 +99,20 @@ enableEmoji = true
     [params.home.profile]
       enable = true
       # URL of avatar shown in home page
-      avatarURL = "/avatar.jpeg"
-      title = "Hello! I'm Cliford"
+      avatarURL = "/avatar.png"
+      title = "hello! i'm cliford"
       # subtitle shown in home page (HTML format is supported)
-      subtitle = "A developer, a linux enthusiast and a tiling window manager supremacist"
+      subtitle = "a developer, tiling window manager evangelist and all around FOSSy boy."
       # whether to use typeit animation for subtitle
       typeit = true
       # whether to show social links
       social = true
-      disclaimer = "i am not responsible."
+      disclaimer = "if all goes as planned, you'll see some blog posts below this."
+
+  [params.section]
+    # special amount of posts in each section page
+    paginate = 20
+    dateFormat = "Jan 2"
 
 # Social config about the author
   [params.social]
