@@ -3,13 +3,17 @@ languageCode = 'en-in'
 title = 'Portfolio'
 theme = 'LoveIt'
 
-# enableGitInfo = true
+enableGitInfo = true
 enableEmoji = true
 
 # Author config
 [author]
   name = "Cliford"
   email = "reach@cliford.net"
+
+[taxonomies]
+  tag = "tags"
+  tool = "tools"
 
 # Menu config
 [menu]
@@ -58,7 +62,7 @@ enableEmoji = true
       # URL of the LOGO
       logo = ""
       # title name
-      name = "cj's blog"
+      name = "clif"
       # you can add extra information before the name (HTML format is supported), such as icons
       pre = '<i class="fa-solid fa-laptop-code"></i>'
       # you can add extra information after the name (HTML format is supported), such as icons
