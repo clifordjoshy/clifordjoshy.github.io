@@ -8,8 +8,8 @@ resources:
 ---
 
 ## Links
-[{{<fa-icon fa-brands fa-github>}} GitHub - Python Version](https://github.com/clifordjoshy/minimax-chess-py)&emsp;
-[{{<fa-icon fa-brands fa-github>}} GitHub - C++ Version](https://github.com/clifordjoshy/minimax-chess-cpp)
+[:(fa-icon fa-brands fa-github): GitHub - Python Version](https://github.com/clifordjoshy/minimax-chess-py)&emsp;
+[:(fa-icon fa-brands fa-github): GitHub - C++ Version](https://github.com/clifordjoshy/minimax-chess-cpp)
 
 ## About
 

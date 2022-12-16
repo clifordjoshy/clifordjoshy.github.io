@@ -2,6 +2,7 @@ baseURL = 'http://cliford.net/'
 languageCode = 'en-in'
 title = 'Portfolio'
 theme = 'LoveIt'
+description = "A site with all of my projects, blog posts and anything else I want to show y'all."
 
 enableGitInfo = true
 enableEmoji = true

@@ -9,8 +9,8 @@ resources:
 ---
 
 ## Links
-[{{<fa-icon fa-brands fa-github>}} GitHub](https://github.com/clifordjoshy/attentrack)&emsp;
-[{{<fa-icon fa-brands fa-google-play>}} Google Play Store](https://play.google.com/store/apps/details?id=com.leap.attentrack)
+[:(fa-icon fa-brands fa-github): GitHub](https://github.com/clifordjoshy/attentrack)&emsp;
+[:(fa-icon fa-brands fa-google-play): Google Play Store](https://play.google.com/store/apps/details?id=com.leap.attentrack)
 
 ## About
 A native android app made in Java using Android Studio. It allows you to add your subjects, and course details and with that calculates how many classes you can miss in a particular semester. You can mark all the classes you've missed and the app keep tracks of your attendance for you.

@@ -1,5 +1,6 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
+subtitle: ""
 date: {{ .Date }}
 tools: []
 resources:
@@ -8,8 +9,8 @@ resources:
 ---
 
 ## Links
-[{{<fa-icon fa-brands fa-github>}} GitHub](https://github.com/clifordjoshy/)&emsp;
-[{{<fa-icon fa-brands fa-github>}} GitHub](https://github.com/clifordjoshy/)
+[:(fa-icon fa-brands fa-github): GitHub](https://github.com/clifordjoshy/)&emsp;
+[:(fa-icon fa-solid fa-book): Reference](https://wikipedia.org/)
 
 ## About
 

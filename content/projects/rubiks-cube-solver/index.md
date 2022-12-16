@@ -8,8 +8,8 @@ resources:
 ---
 
 ## Links
-[{{<fa-icon fa-brands fa-github>}} GitHub](https://github.com/clifordjoshy/thistlethwaite-rubiks)&emsp;
-[{{<fa-icon fa-solid fa-book>}} Thisthlethwaite Algorithm Reference](https://www.jaapsch.net/puzzles/thistle.htm)
+[:(fa-icon fa-brands fa-github): GitHub](https://github.com/clifordjoshy/thistlethwaite-rubiks)&emsp;
+[:(fa-icon fa-solid fa-book): Thisthlethwaite Algorithm Reference](https://www.jaapsch.net/puzzles/thistle.htm)
 
 ## About
 
