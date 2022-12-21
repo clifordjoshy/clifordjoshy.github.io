@@ -30,15 +30,15 @@ I hope to post every so often about random projects that I'm working on or just 
 
 ### Why HUGO?
 
-I wish I could say I had a long research montage which finally led to me knowing from the bottom of my soul that this was **"the one"**. Sadly, I cannot. The story is much more boring. I came to know about HUGO because one of my college seniors had his website on it, which I saw and thought "Huh! Websites without CSS. Neat! Guess I'll add it to the evergrowing bookmark pile.". 5 months later, I was in the market for a website and could not bother with the thought of CSS (did I mention I loathe CSS. I do not have the patience or the know-how to operate that clunk). In comes the bookmark.
+I wish I could say I had a long research montage which finally led to me knowing from the bottom of my soul that this was **"the one"**. Sadly, I cannot. The story is much more boring. I came to know about HUGO because one of my college seniors had his website on it, which I saw and thought "Huh! Websites without CSS. Neat! Guess I'll add it to the evergrowing bookmark pile.". five months later, I was in the market for a website and could not bother with the thought of CSS (did I mention I loathe CSS. I do not have the patience or the know-how to operate that clunk). In comes the bookmark.
 
 I did look into [Jekyll](https://jekyllrb.com/) as well, but ended up going with this because of my one holy metric; **Github stars**.
 
 ### What have I done so far?
 
-Well, I spent a bunch of time looking for themes and finally settled on [https://github.com/dillonzq/LoveIt](https://github.com/dillonzq/LoveIt). Can't say I love it, but it is pretty neat.
+Well, I spent a bunch of time looking for themes and finally settled on [LoveIt](https://github.com/dillonzq/LoveIt). Can't say I love it, but it is pretty neat.
 
-I fiddled around with a lot of the settings and ended up overriding the posts preview in the homepage and the very page you're seeing now. This theme feels the need to add along an author to every post. I feel like unless I really get into the concept of pseudonyms over the course of the next year, it would be kind of repetitive to see my name pop up in 5 different places every link you click on here. So, goodbye I bid to that. In case you are wondering who is the author of this, take a good look at the domain name and make your wildest guess.
+I fiddled around with a lot of the settings and ended up overriding the posts preview in the homepage and the very page you're seeing now. This theme feels the need to add along an author to every post. I feel like unless I really get into the concept of pseudonyms over the course of the next year, it would be kind of repetitive to see my name pop up in five different places every link you click on here. So, goodbye I bid to that. In case you are wondering who is the author of this, take a good look at the domain name and make your wildest guess.
 
 Obviously, you can just go check my git history to get a full log of what I'm doing (I write readable commit messages, I swear), but the gist of it is that I've been fiddling around trying to understand all that HUGO has to offer.
 
@@ -46,7 +46,7 @@ Obviously, you can just go check my git history to get a full log of what I'm do
 
 Well, as of now, I have a 'projects' entry in the navbar that doesn't really do anything. Maybe by the time you're reading this, you'll be able to see me flexing some of the projects I had the (mis)fortune of doing over the past few years.
 
-Outside of the scope of this website, I do need to work on my final year project (look out for a post on NITCbase) which I will be shamelessly plugging once I feel it's in a reasonably good state. I have a bunch of ideas on projects to do in Rust as well. Maybe someday I'll have something to show for the 2 Rust stickers I carry around on my laptop every day.
+Outside of the scope of this website, I do need to work on my final year project (look out for a post on NITCbase) which I will be shamelessly plugging once I feel it's in a reasonably good state. I have a bunch of ideas on projects to do in Rust as well. Maybe someday I'll have something to show for the two Rust stickers I carry around on my laptop every day.
 
 ## Finito
 

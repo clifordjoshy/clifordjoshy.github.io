@@ -1,11 +1,11 @@
 baseURL = 'http://cliford.net/'
 languageCode = 'en-in'
-title = 'Portfolio'
+title = 'clifpage'
 theme = 'LoveIt'
 description = "A site with all of my projects, blog posts and anything else I want to show y'all."
 
 enableGitInfo = true
-enableEmoji = true
+# enableEmoji = truegit@github.com:CliJEO/clijeo-public.git
 
 # Author config
 [author]
@@ -87,7 +87,7 @@ enableEmoji = true
     # Site creation time
     since = 2022
     # license info (HTML format is supported)
-    license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+    # license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
 
 	# Home page config
   [params.home]
@@ -116,9 +116,9 @@ enableEmoji = true
     GitHub = "clifordjoshy"
     Linkedin = "cliford-joshy-15b648190"
     Discord = "PaperStache#5235"
-		StackOverflow="xx"
+		# StackOverflow="xx"
     Email = "reach@cliford.net"
-    RSS = true # LoveIt NEW | 0.2.0
+    RSS = true
 
   [params.typeit]
     # typing speed between each step (measured in milliseconds)
