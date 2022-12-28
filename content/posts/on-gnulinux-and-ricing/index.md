@@ -33,7 +33,9 @@ I don't really intend for this to be very preachy, and I'm not going to give you
 
 This is the primary reason that pushed me to Linux. I used to be a {{<raw>}}<sub><sup>(filthy)</sup></sub>{{</raw>}} Windows loyalist who used to follow the GUI install for any dev tool I wanted. And that's fine and all, but it does not compare to how cool it feels using Linux. Opening [cmatrix](https://github.com/abishekvashok/cmatrix) on one side and installing stuff using the terminal. Very hackerman™. Very cool.
 
+{{<style "text-align: center;" >}}
 ![hackerman](./hackerman.png)
+{{</style>}}
 
 It just feels a lot more cool when you actually have control over your system rather than having a multi-billion dollar corporation shoving ads everywhere it can. I've always had an itch to customise random things which Windows could never scratch(Rainmeter can only do so much).
 Which leads to my next point.
@@ -41,7 +43,7 @@ Which leads to my next point.
 ### you can customise LITERALLY everything
 
 I cannot describe just how optimised my desktop is for my workflow. Every single thing I've wanted to change on my system, I've changed. The best example I can use is my desktop bar.
-{{<figure src="./ricebar.png" width="100%" alt="this image was too cool to load" >}}
+{{<image src="./ricebar.png" width="100%" alt="this image was too cool to load" >}}
 - The Spotify widget will display the song that's currently playing, pause/resume on left click, next/previous track on scroll and jump to the open spotify window on right click.
 - The volume widget will adjust system volume on scroll, open a volume control panel (pavucontrol) on left click, and launch system wide noise cancellation on left click (noisetorch).
 - The internet widget will show the current wifi signal/ethernet and the immediate download speed, and on click will launch a network config menu(nmtui). On right click, it will check for network connectivity.
@@ -89,7 +91,9 @@ There're obviously more (in my opinion, less attractive) reasons like security, 
 
 And quite importantly, it's free.
 
-![meme](./meme.jpg#center)
+{{<style "text-align: center;" >}}
+![meme](./meme.jpg)
+{{</style>}}
 
 ## Why you shouldn't use Linux
 

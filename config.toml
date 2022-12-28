@@ -105,6 +105,9 @@ enableGitInfo = true
       # whether to show social links
       social = true
       disclaimer = "if all goes as planned, you'll see some blog posts below this."
+    [params.home.posts]
+      # special amount of posts in each home posts page
+      paginate = 3
 
   [params.section]
     # special amount of posts in each section page
