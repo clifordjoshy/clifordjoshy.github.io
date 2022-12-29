@@ -12,7 +12,7 @@ We decided to put up some lights around the house for this year's Christmas. As 
 What's unique about these LEDs is that each one contains an IC; as such, it allows you to individually control each LED in the strip. A typical LED strip might have a power and a ground line and have the entire strip light up uniformly. Here, we have a power, ground and a data line that can be fed using a microcontroller.
 
 This is the design that we decided to go with.
-```
+```plain
 : : : : : : : : : : : :
 | | | | | | | | | | | |
 | | | | | 7 7 | | | | |
@@ -45,17 +45,17 @@ The need for math in computer science is often questioned (outside math-heavy re
 A single strip is as follows.
 ```
       0 1 2 3 4 5
-                ╭──── Power + Data In
-      ▲ ╭─╮ ╭─╮ ▼
-   0  | | | | | |
-   :  : : : : : :
-   6  | | | | | |
-   8  │ | | | | |
-  10  ╰─╯ | | | |
-  12      │ | | |
-  14      ╰─╯ | |
-  16          │ |
-              ╰─╯
+                ╔═════ Power + Data In
+      ▲ ╔═╗ ╔═╗ ▼
+   0  │ │ │ │ │ │
+   ┊  ┊ ┊ ┊ ┊ ┊ ┊
+   6  │ │ │ │ │ │
+   8  ║ │ │ │ │ │
+  10  ╚═╝ │ │ │ │
+  12      ║ │ │ │
+  14      ╚═╝ │ │
+  16          ║ │
+              ╚═╝
 
 ```
 Here, we have 6 lines labelled 0-5. The leftmost line contains 7 lights, and the rightmost line 17. In general, the `i`th line contains **`7 + 2i`** lights on it. You might've noticed that this is an arithmetic progression. And that realisation is what's going to come in handy later.
