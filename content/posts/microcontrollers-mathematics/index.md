@@ -106,7 +106,7 @@ int coordToLedIndex(int line, int element){
 }
 ```
 
-Now, I know arithmetic progressions aren't awfully complex. I'm sure you could devise the logic for this with a minute of pondering. But my point still stands. There have been many occasions where the math I've learnt has come in handy simplifying the code I'm writing. (of course, I didn't have a void to scream into. Good thing I have this blog now).
+Now, I know arithmetic progressions aren't awfully complex. I'm sure you could devise the logic for this with a minute of pondering. But my point still stands. There have been many occasions where the math I've learnt has come in handy simplifying the code I'm writing. (of course, I didn't have a void to scream into then; good thing I have this blog now). Eitherway, this whole math section here is just an excuse for me to mess around with [KaTeX](https://katex.org/), so take what I say with a grain of salt.
 
 ### Code Organisation
 
