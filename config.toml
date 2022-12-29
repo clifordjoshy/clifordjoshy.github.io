@@ -51,11 +51,8 @@ enableGitInfo = true
   # public git repo url only then enableGitInfo is true
   gitRepo = "https://github.com/clifordjoshy/clifordjoshy.github.io"
   dateFormat = "January 2, 2006"
-  # website title for Open Graph and Twitter Cards
-  # title = "Random Ramblings"
-  # description = "This is where i will randomly ramble."
-  # website images for Open Graph and Twitter Cards
-  # images = ["/logo.png"]
+  # description for embeds
+  description = "hello there."
 	  # Header config
   [params.header]
     # LoveIt NEW | 0.2.0 Header title config
@@ -72,6 +69,8 @@ enableGitInfo = true
   [params.page]
     [params.page.share]
       enable = false
+    [params.page.math]
+      enable = true
 
 # Footer config
   [params.footer]

@@ -17,7 +17,7 @@ tools: ["nodemcu", "java", "android-sdk", "websockets"]
 ## About
 
 ### The Thing
-A 16x15 grid of WS2811 LEDs, a 15A power supply and a NodeMCU. Serves as which serves as a clock, an arcade (with a bunch of classic games like Snake, Tetris, Pong and Flood-It!), a music visualizer all controllable from an Android app.
+A 16x15 grid of WS2811 LEDs, a 15W power supply and a NodeMCU. Serves as a clock, an arcade (with a bunch of classic games like Snake, Tetris, Pong and Flood-It!) and a music visualizer all controllable from an Android app.
 
 By default, it starts in the clock mode, which fetches time using NTP and displays it (pictured above). There's a button on the side which allows you to switch to the app controlled mode.
 
