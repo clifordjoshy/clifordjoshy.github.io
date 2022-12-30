@@ -12,7 +12,8 @@ We decided to put up some lights around the house for this year's Christmas. As 
 What's unique about these LEDs is that each one contains an IC; as such, it allows you to individually control each LED in the strip. A typical LED strip might have a power and a ground line and have the entire strip light up uniformly. Here, we have a power, ground and a data line that can be fed using a microcontroller.
 
 This is the design that we decided to go with.
-```plain
+
+```text
 : : : : : : : : : : : :
 | | | | | | | | | | | |
 | | | | | 7 7 | | | | |
@@ -22,6 +23,7 @@ This is the design that we decided to go with.
 | 15               15 |
 17                   17
 ```
+
 As a big fan of symmetry (and in the pursuit of laziness), I decided that both halves of this design **should** be mirrored. This would allow me to feed the same input to both strips.
 
 ## Building It
@@ -34,7 +36,7 @@ The way I would be wiring it was still unclear when I started working. I split t
 
 There are two digressions I would like to go on here. But, before I get into that, I need to re-capture your attention with some flashing lights. So, here's how it finally turned out.
 
-{{<image src="./lights.gif" height="250px">}}
+{{<image src="./lights.gif#center" height="250px">}}
 
 I will get to the glaring issues [later](#issues). Getting into the digressions,
 
@@ -123,7 +125,7 @@ Each file other than `MerryChristmas.ino` will be sorted in alphabetical order, 
 
 I tried to set it up with VSCode, but it felt like a whole hassle to get that working, and it does not even work properly if I don't have the IDE installed. There is an alternative in the form of the [arduino-cli](https://arduino.github.io/arduino-cli) though, which is always promising.
 
-I did stumble on some even cooler alternatives which I've mentioned [later](#notes-for-the-future)
+I did stumble on some even cooler alternatives which I've mentioned [later](#notes-for-the-future).
 
 ## Issues
 

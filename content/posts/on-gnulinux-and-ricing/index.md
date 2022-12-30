@@ -33,9 +33,7 @@ I don't really intend for this to be very preachy, and I'm not going to give you
 
 This is the primary reason that pushed me to Linux. I used to be a {{<raw>}}<sub><sup>(filthy)</sup></sub>{{</raw>}} Windows loyalist who used to follow the GUI install for any dev tool I wanted. And that's fine and all, but it does not compare to how cool it feels using Linux. Opening [cmatrix](https://github.com/abishekvashok/cmatrix) on one side and installing stuff using the terminal. Very hackerman™. Very cool.
 
-{{<style "text-align: center;" >}}
-![hackerman](./hackerman.png)
-{{</style>}}
+![hackerman](./hackerman.png#center)
 
 It just feels a lot more cool when you actually have control over your system rather than having a multi-billion dollar corporation shoving ads everywhere it can. I've always had an itch to customise random things which Windows could never scratch(Rainmeter can only do so much).
 Which leads to my next point.
@@ -91,9 +89,7 @@ There're obviously more (in my opinion, less attractive) reasons like security, 
 
 And quite importantly, it's free.
 
-{{<style "text-align: center;" >}}
-![meme](./meme.jpg)
-{{</style>}}
+{{<image src="./meme.jpg#center" width="300px">}}
 
 ## Why you shouldn't use Linux
 

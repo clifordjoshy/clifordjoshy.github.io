@@ -12,7 +12,7 @@ So, I finally decided to buy myself a domain and put myself out there on the int
 
 I even used to have a website before this one. Right around the time I created a GitHub, I managed to whip up a simple landing page for myself which has been available at [clifordjoshy.github.io](https://clifordjoshy.github.io) for the past three years. By the time this goes up, that site (that I'll let you know took me a whole night to figure out the CSS for) would've been long buried in some Microsoft cache somewhere. As a remembrance of the website that's been with me throughout my (villainous?) journey, I'll leave here a screenshot.
 
-![you don't need to see this](./oldsite.png)
+![you don't need to see this](./oldsite.png#center)
 
 ### Retrospect
 
