@@ -5,7 +5,8 @@ theme = 'LoveIt'
 description = "A site with all of my projects, blog posts and anything else I want to show y'all."
 
 enableGitInfo = true
-# enableEmoji = truegit@github.com:CliJEO/clijeo-public.git
+enableRobotsTXT = true
+# enableEmoji = true
 
 # Author config
 [author]
