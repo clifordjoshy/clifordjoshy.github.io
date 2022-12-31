@@ -25,4 +25,4 @@ The program was able to find solutions for most states in under a minute. The ru
 
 ## Personal Notes
 
-This was a pretty hard project to implement. The only proper piece of documentatio.n I could find for this algorithm was a letter from Thisthlethwaite linked above. I had to pour over those papers for days on end to properly understand the algorithm.
+This was a pretty hard project to implement. The only proper piece of documentation I could find for this algorithm was a letter from Thisthlethwaite linked above. I had to pour over those papers for days on end to properly understand the algorithm.

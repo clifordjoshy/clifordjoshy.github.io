@@ -5,7 +5,7 @@ date: {{ .Date }}
 tools: []
 resources:
   - name: "featured-image"
-    src: "featured-image.png"
+    src: "banner.png"
 ---
 
 ## Links

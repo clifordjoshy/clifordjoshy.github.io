@@ -1,7 +1,7 @@
 ---
 title: "Tathva/Ragam Backends"
 subtitle: "REST APIs for my college fests"
-date: 2021-05-30T13:23:40+05:30
+date: 2022-05-01T13:23:40+05:30
 tools: ["strapi", "node", "postgres"]
 resources:
   - name: "featured-image"
