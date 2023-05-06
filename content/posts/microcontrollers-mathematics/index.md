@@ -2,7 +2,6 @@
 title: "Microcontrollers, Mathematics and a Merry Christmas"
 date: 2022-12-26T22:13:31+05:30
 tags: ["arduino", "math", "nodemcu", "create"]
-math: true
 ---
 
 ## Prelude

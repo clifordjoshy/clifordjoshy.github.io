@@ -72,6 +72,24 @@ enableRobotsTXT = true
       enable = false
     [params.page.math]
       enable = true
+    [params.page.comment]
+      enable = true
+      [params.page.comment.telegram]
+        enable = true
+        siteID = "K-lCQVu-"
+        limit = 10
+        color = ""
+        colorful = true
+        dislikes = false
+        outlined = false
+      [params.page.comment.utterances]
+        enable = false
+        # owner/repo
+        repo = "clifordjoshy/clifordjoshy.github.io"
+        issueTerm = "pathname"
+        label = "blog-comment"
+        lightTheme = "github-light"
+        darkTheme = "github-dark"
 
 # Footer config
   [params.footer]
@@ -87,7 +105,7 @@ enableRobotsTXT = true
     # Site creation time
     since = 2022
     # license info (HTML format is supported)
-    # license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+    license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
 
 	# Home page config
   [params.home]
