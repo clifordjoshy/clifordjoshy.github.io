@@ -75,21 +75,28 @@ enableRobotsTXT = true
     [params.page.comment]
       enable = true
       [params.page.comment.telegram]
-        enable = true
+        enable = false
         siteID = "K-lCQVu-"
         limit = 10
         color = ""
         colorful = true
         dislikes = false
         outlined = false
-      [params.page.comment.utterances]
-        enable = false
-        # owner/repo
+      [params.page.comment.giscus]
+        enable = true
         repo = "clifordjoshy/clifordjoshy.github.io"
-        issueTerm = "pathname"
-        label = "blog-comment"
-        lightTheme = "github-light"
-        darkTheme = "github-dark"
+        repoId = "R_kgDOInhGJA"
+        category = "Comments"
+        categoryId = "DIC_kwDOInhGJM4CWUOw"
+        # automatically adapt the current theme i18n configuration when empty
+        lang = ""
+        mapping = "pathname"
+        reactionsEnabled = "1"
+        emitMetadata = "0"
+        inputPosition = "top"
+        lazyLoading = false
+        lightTheme = "light"
+        darkTheme = "transparent_dark"
 
 # Footer config
   [params.footer]
