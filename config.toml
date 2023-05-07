@@ -71,7 +71,7 @@ enableRobotsTXT = true
     [params.page.share]
       enable = false
     [params.page.math]
-      enable = true
+      enable = false
     [params.page.comment]
       enable = true
       [params.page.comment.telegram]

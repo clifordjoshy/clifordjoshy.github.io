@@ -2,6 +2,8 @@
 title: "Microcontrollers, Mathematics and a Merry Christmas"
 date: 2022-12-26T22:13:31+05:30
 tags: ["arduino", "math", "nodemcu", "create"]
+math:
+  enable: true
 ---
 
 ## Prelude
@@ -44,6 +46,7 @@ I will get to the glaring issues [later](#issues). Getting into the digressions,
 The need for math in computer science is often questioned (outside math-heavy realms like ML and whatnot). I'm of the opinion that you can find what you need (with the almighty power of the Internet) when you need it, but random stuff I learnt in school still finds relevance in my day-to-day projects. For this specific project, I was writing a function to map from a coordinate to the corresponding LED number on the strip.
 
 A single strip is as follows.
+
 ```
       0 1 2 3 4 5
                 ╔═════ Power + Data In
@@ -59,6 +62,7 @@ A single strip is as follows.
               ╚═╝
 
 ```
+
 Here, we have 6 lines labelled 0-5. The leftmost line contains 7 lights, and the rightmost line 17. In general, the `i`th line contains **`7 + 2i`** lights on it. You might've noticed that this is an arithmetic progression. And that realisation is what's going to come in handy later.
 
 For an arithmetic progression with common difference `d` and first term `a`, we have the following formula for the `n`th term.
@@ -75,12 +79,12 @@ The direction of the lines alternates back and forth. On an odd-numbered line, w
 
    Since we have the realisation that this is an arithmetic progression, we have a ready-to-go formula we can apply to get the sum of terms.
 
-   {{<raw>}}\[{S_{n}={\frac {n}{2}}[2a+(n-1)d]}\]{{</raw>}}
+   {{<raw>}}\[{S*{n}={\frac {n}{2}}[2a+(n-1)d]}\]{{</raw>}}
    Since our line index is opposite to the direction of the progression, we calculate `n` as `5-line`.
    {{<raw>}}
    \[n = 5 - line, a = 17, d = -2\]
-   \[S_{n} = \frac {5-line}{2}[2(17)+(5-line-1)(-2)]\]
-   \[S_{n} = (5-line)(13+line)\]
+   \[S*{n} = \frac {5-line}{2}[2(17)+(5-line-1)(-2)]\]
+   \[S\_{n} = (5-line)(13+line)\]
    {{</raw>}}
 
 2. **current line**
@@ -88,6 +92,7 @@ The direction of the lines alternates back and forth. On an odd-numbered line, w
    `element` gives us the offset from the top of the line. If this is a top-down line, we can just add `element` to the previously obtained sum to get the index. Otherwise, we can calculate the offset from the bottom by subtracting `element` from the total number of lights on the line.
 
 Putting this together, we have the following function.
+
 ```cpp
 int coordToLedIndex(int line, int element){
   // total lights until the previous line. (using our sum formula)
@@ -112,6 +117,7 @@ Now, I know arithmetic progressions aren't awfully complex. I'm sure you could d
 ### Code Organisation
 
 Trying to follow the layer structure above, I wanted to split my program into multiple files and include it all in a `main.ino`, but that is not how the Arduino IDE expects you to organize code. If the folder is called `MerryChristmas`, then we would have a `MerryChristmas.ino`, which is the file that will be uploaded. If you want more files, we would have something like
+
 ```
 MerryChristmas
 ├── MerryChristmas.ino
@@ -120,6 +126,7 @@ MerryChristmas
 ├── 30_Sequences.ino
 └── 40_main.ino
 ```
+
 Each file other than `MerryChristmas.ino` will be sorted in alphabetical order, placed together and uploaded as a singular file with `MerryChristmas.ino` first. This is awful. The Arduino IDE, in my opinion, feels very amateurish and, until recently, did not even have a dark mode (in this day and age, high treason). Not to mention the clutter that it adds to the home directory. Obviously, it's not built for the most technical audience and definitely does not need to worry about anything I've mentioned here.
 
 I tried to set it up with VSCode, but it felt like a whole hassle to get that working, and it does not even work properly if I don't have the IDE installed. There is an alternative in the form of the [arduino-cli](https://arduino.github.io/arduino-cli) though, which is always promising.
@@ -133,6 +140,7 @@ At the beginning of this post, I'd mentioned symmetry, mirroring, and whatnot. I
 My personal deduction is that this must be because of attenuation along the line. The controller is placed at the rightmost end, and the lines are fed from the top of the 17 LED lines. So, there's a wire that goes across the entire setup carrying the data from the controller to the beginning of the left strip. The data must be getting distorted, or some other hijinks with the wire must be afoot.
 
 Either way, it didn't look too bad. So, as they say,
+
 > it's not a bug; it's a feature
 
 I should've considered the possibility of treating the entire setup as a single strip of 144 LEDs, which might not have had this issue. The whole point of splitting it was to ensure everything was shining with maximum brightness. Oh well.
