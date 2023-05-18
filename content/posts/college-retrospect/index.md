@@ -30,7 +30,7 @@ Especially during the last few weeks of college, a lot of us final years used to
 
 ### Athena
 
-Aside from the "key duty", we as admins also had root access to all the PCs and our beloved server, Athena (top right corner in the image above). We were expected to maintain these systems and was responsible for hosting various college services. It was a great learning experience being given full access to a proper server and pulling out the display in the server to physically connect to the server felt very cool.
+Aside from the "key duty", we as admins also had root access to all the PCs and our beloved server, Athena (top right corner in the image above). We were expected to maintain these systems and was responsible for hosting various college services. It was a great learning experience being given full access to a proper server and pulling out the display in the rack to physically connect to the server felt very cool.
 
 We were sometimes even tasked with installing software on all the potato PCs in the lab which would always end up in some issue. We would always spend a lot of time trying to get it to work using [clusterssh](https://github.com/duncs/clusterssh), sometimes taking even more time than it would have taken to physically go to each of the systems and install it. Fun times!
 
@@ -91,6 +91,21 @@ In the following summer, I moved to Hyderabad and interned at [D.E. Shaw](https:
 ## NITC Mail
 
 I feel like I cannot write a blog post about my time at NITC without mentioning the organisational mail. I cannot measure the sheer amount of time I've spent reading through silly mail threads, and random drama that pops up in college that prompts mails to all students. I sure am going to miss these mails now that I'm out of college, but I do hope the NITC mail remains just as it is in all it's glory for years to come
+
+## Cali
+
+Calicut, or Koഴikode, is the beloved city where our college is located. Over the course of the offline times, I'm sure all of have been back and forth from Calicut countless times. Every so often, this conversation comes up among me and my friends.
+
+{{< admonition quote "Going Out" true >}}
+Let's go to Kozhikode.
+
+> What do we do in Kozhikode?
+
+The beach
+
+{{< /admonition >}}
+
+Ah, the beach! The main attraction of the city. I'm convinced that almost everything that happens in Kozhikode is in and around the beach. The ice shaving thing we get there, the beautiful sunsets, the events that happen there, the amazing restaurants nearby are all memories that I will fondly remember as I leave this city. One of my favourite memories is the time that we went out to the beach at night, bought shawarma, and sat down by the beach and ate it with the gentle lull of the waves in our ears. We even ended up naming a group chat after this ("shawarma by the beach" gang represent🤙).
 
 ## Parting Thoughts
 
