@@ -14,7 +14,7 @@ Before I bore you with my nostalgic infodumping, I think I need to grab your att
 
 {{<image src="stickers.jpeg" height="300px">}}
 
-Collecting these stickers was like a side-quest for me throughout college. Over the span of my final year in college, I managed to attend and participate in enough events to fill up my laptop with stickers, each of which bring back unique memories. I don't know if this laptop will make it for another 10 years (silent prayer to the ThinkPad gods🙏), but here lies the proof that I finished my quest!
+Collecting these stickers was like a side-quest for me throughout college. Over the span of my final year in college, I managed to attend and participate in enough events to fill up my laptop with stickers, each of which bring back unique memories. I don't know if this laptop will make it another 10 years (silent prayer to the ThinkPad gods🙏), but here lies the proof that I finished my quest!
 
 ## SSL
 
@@ -66,7 +66,7 @@ We peaked when Anuragam, the annual Valentine's Day event at NITC, happened on o
 
 ## Stallman
 
-This might be seem pretty random, but I got to spend a day with {{<person name="Dr. Richard Stallman" text="gnu man" url="https://stallman.org/" picture="https://www.gnu.org/graphics/gnu-head.jpg">}}, founder of the [GNU](https://gnu.org) project and the [Free Software Foundation](https://fsf.org). One of the big names when it comes to GNU/Linux community.
+This might be seem pretty random, but I got to spend a day with {{<person name="Dr. Richard Stallman" text="gnu man" url="https://stallman.org/" picture="https://www.gnu.org/graphics/gnu-head.jpg">}}, founder of the [GNU](https://gnu.org) project and the [Free Software Foundation](https://fsf.org). One of the big names when it comes to the GNU/Linux community.
 
 He had come for a lecture as part of Tathva, and wanted to have lunch with a few students before his journey back. So, me and a couple of friends went to receive him with a bunch of Kerala food, and spent the afternoon talking to him. I am really glad I got to have the experience, but all I can say is that the proverb "never meet your heroes" made a lot of sense to me that day!
 
@@ -78,7 +78,7 @@ Building these out was pretty rewarding, and I learnt a lot about the fundamenta
 
 I was so impressed by these courses that I decided that I wanted to be part of them too. In my final year, I joined the developer team for both of the above projects and also joined under {{<person name="Murali" url="https://people.cse.nitc.ac.in/muralikrishnan/" >}} Sir to build NITCbase (see: [projects]({{<relref "/projects/nitcbase">}})), a third entry in the series, which would guide a student through the implementation of a relational DBMS. Sitting in the SSL, reviewing and writing the documentation for NITCbase, was a really memorable part of my final semester.
 
-{{<image src="nitcbase.jpeg" caption="me and Murali sir working on NITCbase" >}}
+{{<image src="nitcbase.jpeg" caption="me and Murali Sir working on NITCbase" >}}
 
 ## Freelancing and Internships
 
