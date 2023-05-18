@@ -58,7 +58,7 @@ I stayed on with the tech team for the next two years as "the backend guy". It f
 
 Rajpath RECalls, started by {{<person name="Vysakh" text="passionate ass dude" url="https://linkedin.com/in/vysakh-premkumar/">}}, aimed to setup a campus radio for our college during the _dark days_ (COVID). He gathered people from our batch to run the shows, design posters, create content, manage the tech infra (where I came in) and all the other work that goes into running a web radio. And we made it work! I built an Android app (see: [projects]({{<ref "/projects/rajpath-recalls">}})) which would allow users to tune into the radio.
 
-![screenshots]({{<ref "/projects/rajpath-recalls">}}/banner.png)
+![screenshots]({{<ref "/projects/rajpath-recalls">}}banner.png)
 
 I'm quite proud of how the app turnt out in terms of its design and functionality. It went out to the Play Store and hit a 1000+ downloads, the highest of any of my mobile apps. The radio ran for a while, with a bunch of shows and a reasonable audience for each of them.
 
