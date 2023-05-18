@@ -8,14 +8,16 @@ resources:
 ---
 
 ## Links
-[:(fa-icon fa-brands fa-github): GitHub](https://github.com/clifordjoshy/thistlethwaite-rubiks)&emsp;
-[:(fa-icon fa-solid fa-book): Thisthlethwaite Algorithm Reference](https://www.jaapsch.net/puzzles/thistle.htm)
+
+[:(fa-icon fa-brands fa-github):&nbsp;GitHub](https://github.com/clifordjoshy/thistlethwaite-rubiks)&emsp;
+[:(fa-icon fa-solid fa-book):&nbsp;Thisthlethwaite Algorithm Reference](https://www.jaapsch.net/puzzles/thistle.htm)
 
 ## About
 
 My implementation of a Rubik's cube solver using the Thisthlethwaite algorithm. A solution can be found for any shuffled state in 45 moves or less.
 
 The algorithm works by splitting the solving into various stages such that
+
 - each stage only uses a subset of the possible moves
 - moves used in a stage will not be needed in any subsequent stages
 

@@ -9,9 +9,10 @@ resources:
 ---
 
 ## Links
-[:(fa-icon fa-brands fa-github): GitHub - Ragam21](https://github.com/clifordjoshy/ragam21-backend)&emsp;
-[:(fa-icon fa-brands fa-github): GitHub - Tathva20](https://github.com/clifordjoshy/tathva20-backend)&emsp;
-[:(fa-icon fa-brands fa-github): GitHub - Ragam22](https://github.com/Ragam22/backend)&emsp;
+
+[:(fa-icon fa-brands fa-github):&nbsp;GitHub - Ragam21](https://github.com/clifordjoshy/ragam21-backend)&emsp;
+[:(fa-icon fa-brands fa-github):&nbsp;GitHub - Tathva20](https://github.com/clifordjoshy/tathva20-backend)&emsp;
+[:(fa-icon fa-brands fa-github):&nbsp;GitHub - Ragam22](https://github.com/Ragam22/backend)&emsp;
 
 ## About
 
@@ -24,4 +25,5 @@ Ragam'22 was (finally) offline and had a completely different set of requirement
 **Deployment**: A DigitalOcean Droplet was allocated with additional block storage for the uploaded media. We handled more than 10,000 unique registrations on each of the websites.
 
 ## Personal Notes
+
 This was the first time I worked with APIs, NodeJS, Strapi, PostgreSQL, deploying an app on the cloud and basically anything web. I'm really glad I took up this responsibility back during Ragam'21. It was majorly overwhelming and cause for me to freak out, but it was ever so worth it. Got to mess around with Linux servers, "pushing to prod" and a bunch of other stuff, all on the college dime.
