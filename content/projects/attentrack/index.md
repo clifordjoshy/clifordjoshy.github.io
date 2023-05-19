@@ -10,8 +10,8 @@ resources:
 
 ## Links
 
-[:(fa-icon fa-brands fa-github):&nbsp;GitHub](https://github.com/clifordjoshy/attentrack)&emsp;
-[:(fa-icon fa-brands fa-google-play):&nbsp;Google Play Store](https://play.google.com/store/apps/details?id=com.leap.attentrack)
+{{<iconlink "github" "GitHub" "https://github.com/clifordjoshy/attentrack">}}&emsp;
+{{<iconlink "playstore" "Google Play Store" "https://play.google.com/store/apps/details?id=com.leap.attentrack">}}
 
 ## About
 

@@ -8,8 +8,8 @@ featuredImage: "banner.png"
 
 ## Links
 
-[:(fa-icon fa-brands fa-github):&nbsp;GitHub](https://github.com/clifordjoshy/)&emsp;
-[:(fa-icon fa-solid fa-book):&nbsp;Reference](https://wikipedia.org/)
+{{<iconlink "github" "GitHub" "https://github.com/clifordjoshy/">}}&emsp;
+{{<iconlink "reference" "Reference" "https://wikipedia.org/">}}
 
 ## About
 

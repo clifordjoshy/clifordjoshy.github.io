@@ -9,8 +9,8 @@ resources:
 
 ## Links
 
-[:(fa-icon fa-brands fa-github):&nbsp;GitHub](https://github.com/clifordjoshy/expl-compilerlab)&emsp;
-[:(fa-icon fa-solid fa-book):&nbsp;eXPL Docs](https://silcnitc.github.io/)
+{{<iconlink "github" "GitHub" "https://github.com/clifordjoshy/expl-compilerlab">}}&emsp;
+{{<iconlink "reference" "eXPL Docs" "https://silcnitc.github.io/">}}&emsp;
 
 ## About
 

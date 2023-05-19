@@ -105,7 +105,7 @@ The beach
 
 {{< /admonition >}}
 
-Ah, the beach! The main attraction of the city. I'm convinced that almost everything that happens in Kozhikode is in and around the beach. The ice shaving thing we get there, the beautiful sunsets, the events that happen there, the amazing restaurants nearby are all memories that I will fondly remember as I leave this city. One of my favourite memories is the time that we went out to the beach at night, bought shawarma, and sat down by the beach and ate it with the gentle lull of the waves in our ears. We even ended up naming a group chat after this ("shawarma by the beach" gang represent🤙).
+Ah, the beach! The main attraction of the city. I'm convinced that almost everything that happens in Kozhikode is in and around the beach. The ice shaving thing we get there, the beautiful sunsets, the events that happen there, the amazing restaurants nearby are all memories that I will fondly remember as I leave this city. One of my favourite memories is the time that we went out to the beach at night, bought shawarma, sat down by the beach and ate it with the gentle lull of the waves in our ears. We even ended up naming a group chat after this ("shawarma by the beach" gang represent🤙).
 
 ## Parting Thoughts
 

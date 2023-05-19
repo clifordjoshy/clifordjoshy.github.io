@@ -8,8 +8,8 @@ featuredImage: "https://github.com/NITCbase/nitcbase.github.io/raw/main/static/i
 
 ## Links
 
-[:(fa-icon fa-brands fa-github):&nbsp;GitHub](https://github.com/NITCbase)&emsp;
-[:(fa-icon fa-solid fa-globe):&nbsp;Website](https://nitcbase.github.io)
+{{<iconlink "github" "GitHub" "https://github.com/NITCbase">}}&emsp;
+{{<iconlink "website" "Website" "https://nitcbase.github.io">}}
 
 ## About
 

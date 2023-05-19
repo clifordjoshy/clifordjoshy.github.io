@@ -14,7 +14,7 @@ tools: ["nodemcu", "java", "android-sdk", "websockets"]
 
 ## Links
 
-[:(fa-icon fa-brands fa-github):&nbsp;GitHub](https://github.com/clifordjoshy/LeapRGB)
+{{<iconlink "github" "GitHub" "https://github.com/clifordjoshy/LeapRGB">}}
 
 ## About
 

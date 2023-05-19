@@ -10,9 +10,9 @@ resources:
 
 ## Links
 
-[:(fa-icon fa-brands fa-github):&nbsp;GitHub](https://github.com/rajpathrecalls/RajpathRecallsApp)&emsp;
-[:(fa-icon fa-brands fa-google-play):&nbsp;Google Play Store](https://play.google.com/store/apps/details?id=com.nitc.rajpathrecalls)&emsp;
-[:(fa-icon fa-solid fa-globe):&nbsp;Website(Deprecated)](https://rajpathrecalls.web.app)
+{{<iconlink "github" "GitHub" "https://github.com/rajpathrecalls/RajpathRecallsApp">}}&emsp;
+{{<iconlink "playstore" "Google Play Store" "https://play.google.com/store/apps/details?id=com.nitc.rajpathrecalls">}}&emsp;
+{{<iconlink "website" "Website(Deprecated)" "https://rajpathrecalls.web.app">}}
 
 ## About
 

@@ -10,9 +10,9 @@ resources:
 
 ## Links
 
-[:(fa-icon fa-brands fa-github):&nbsp;GitHub - Ragam21](https://github.com/clifordjoshy/ragam21-backend)&emsp;
-[:(fa-icon fa-brands fa-github):&nbsp;GitHub - Tathva20](https://github.com/clifordjoshy/tathva20-backend)&emsp;
-[:(fa-icon fa-brands fa-github):&nbsp;GitHub - Ragam22](https://github.com/Ragam22/backend)&emsp;
+{{<iconlink "github" "GitHub - Ragam21" "https://github.com/clifordjoshy/ragam21-backend">}}&emsp;
+{{<iconlink "github" "GitHub - Tathva20" "https://github.com/clifordjoshy/tathva20-backend">}}&emsp;
+{{<iconlink "github" "GitHub - Ragam22" "https://github.com/Ragam22/backend">}}
 
 ## About
 
