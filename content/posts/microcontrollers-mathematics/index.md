@@ -37,7 +37,7 @@ The way I would be wiring it was still unclear when I started working. I split t
 
 There are two digressions I would like to go on here. But, before I get into that, I need to re-capture your attention with some flashing lights. So, here's how it finally turned out.
 
-{{<image src="./lights.gif#center" height="250px">}}
+{{<image src="./lights.gif" height="250px">}}
 
 I will get to the glaring issues [later](#issues). Getting into the digressions,
 
