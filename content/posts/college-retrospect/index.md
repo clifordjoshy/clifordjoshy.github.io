@@ -58,7 +58,7 @@ I stayed on with the tech team for the next two years as "the backend guy". It f
 
 Rajpath RECalls, started by {{<person name="Vysakh" text="passionate ass dude" url="https://linkedin.com/in/vysakh-premkumar/">}}, aimed to setup a campus radio for our college during the _dark days_ (COVID). He gathered people from our batch to run the shows, design posters, create content, manage the tech infra (where I came in) and all the other work that goes into running a web radio. And we made it work! I built an Android app (see: [projects]({{<relref "/projects/rajpath-recalls">}})) which would allow users to tune into the radio.
 
-![screenshots]({{<relref "/projects/rajpath-recalls">}}banner.png)
+{{<image src="/projects/rajpath-recalls/banner.png" caption="screenshots from the app">}}
 
 I'm quite proud of how the app turnt out in terms of its design and functionality. It went out to the Play Store and hit a 1000+ downloads, the highest of any of my mobile apps. The radio ran for a while, with a bunch of shows and a reasonable audience for each of them.
 
@@ -91,6 +91,18 @@ In the following summer, I moved to Hyderabad and interned at [D.E. Shaw](https:
 ## NITC Mail
 
 I feel like I cannot write a blog post about my time at NITC without mentioning the organisational mail. I cannot measure the sheer amount of time I've spent reading through silly mail threads, and random drama that pops up in college that prompts mails to all students. I sure am going to miss these mails now that I'm out of college, but I do hope the NITC mail remains just as it is in all it's glory for years to come
+
+## Hackathons
+
+In my opinion, hackathons are a must-have experience for any CS student. Staying up all night with a team working on some project, the last minute grind to get all the deliverables done, the sleep-deprived presentations, and the late night conversations are all things I hope to experience even out of college.
+
+Over my time in college, I've been involved in a few hackathons, three of which I'll remember fondly. The first one was [Code For Good](https://careers.jpmorgan.com/us/en/students/programs/code-for-good), an online hackathon which put us into randomised teams with other college students across India. I remember that even though we started out slow, our team really found our sync, and by the late hours of the night, we were just burning through all the pending tasks. More so than the hackathon itself, I'm grateful for the T-Shirt they provided. It was really comfortable and it ended up becoming an essential part of my pajama weekly rotation.
+
+Another one of my favourite hackathon experiences was NITCkathon _(en-ai-tee-see-ka-thon? nitka-thon?)_, a hackathon conducted within NITC. Take a guess where it was held. We built a mostly functional app, made a killer presentation, bombed the demo, and ended up winning the competition!
+
+_Code.Init()_ is an annual hackathon held within the CSE department of NITC. Contrary to my past experiences, I was on the organising team for this one. In the wee hours of the night, our stomachs collectively started grumbling. We brave soldiers headed out on our conquest to a nearby restaurant, and returned promptly, with a whopping **45** pizzas in our hands. We had enough pizzas for everyone to fill up their stomachs, and more importantly, their hearts, with these warm memories.
+
+{{<image src="./pizza.jpeg" height="300px" caption="the mighty pizza stack">}}
 
 ## Cali
 
