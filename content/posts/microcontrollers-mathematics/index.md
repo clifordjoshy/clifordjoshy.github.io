@@ -79,12 +79,12 @@ The direction of the lines alternates back and forth. On an odd-numbered line, w
 
    Since we have the realisation that this is an arithmetic progression, we have a ready-to-go formula we can apply to get the sum of terms.
 
-   {{<raw>}}\[{S*{n}={\frac {n}{2}}[2a+(n-1)d]}\]{{</raw>}}
+   {{<raw>}}\[{S_{n}={\frac {n}{2}}[2a+(n-1)d]}\]{{</raw>}}
    Since our line index is opposite to the direction of the progression, we calculate `n` as `5-line`.
    {{<raw>}}
    \[n = 5 - line, a = 17, d = -2\]
-   \[S*{n} = \frac {5-line}{2}[2(17)+(5-line-1)(-2)]\]
-   \[S\_{n} = (5-line)(13+line)\]
+   \[S_{n} = \frac {5-line}{2}[2(17)+(5-line-1)(-2)]\]
+   \[S_{n} = (5-line)(13+line)\]
    {{</raw>}}
 
 2. **current line**
