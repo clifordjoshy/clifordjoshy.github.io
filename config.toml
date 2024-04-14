@@ -8,159 +8,160 @@ enableGitInfo = true
 enableRobotsTXT = true
 # enableEmoji = true
 
-# Author config
-[author]
-  name = "Cliford"
-  email = "reach@cliford.net"
-
 [taxonomies]
-  tag = "tags"
-  tool = "tools"
+tag = "tags"
+tool = "tools"
 
 # Menu config
 [menu]
-  [[menu.main]]
-    weight = 1
-    identifier = "posts"
-    # you can add extra information before the name (HTML format is supported), such as icons
-    pre = ""
-    # you can add extra information after the name (HTML format is supported), such as icons
-    post = ""
-    name = "posts"
-    url = "/posts/"
-    # title will be shown when you hover on this menu link
-    title = ""
-  [[menu.main]]
-    weight = 2
-    identifier = "projects"
-    pre = ""
-    post = ""
-    name = "projects"
-    url = "/projects/"
-    title = ""
-  [[menu.main]]
-    weight = 3
-    identifier = "resume"
-    pre = ""
-    post = '<i class="fa fa-external-link" aria-hidden="true"></i>'
-    name = "resume"
-    url = "/resume.pdf"
-    title = ""
+[[menu.main]]
+weight = 1
+identifier = "posts"
+# you can add extra information before the name (HTML format is supported), such as icons
+pre = ""
+# you can add extra information after the name (HTML format is supported), such as icons
+post = ""
+name = "posts"
+url = "/posts/"
+# title will be shown when you hover on this menu link
+title = ""
+[[menu.main]]
+weight = 2
+identifier = "projects"
+pre = ""
+post = ""
+name = "projects"
+url = "/projects/"
+title = ""
+[[menu.main]]
+weight = 3
+identifier = "resume"
+pre = ""
+post = '<i class="fa fa-external-link" aria-hidden="true"></i>'
+name = "resume"
+url = "/resume.pdf"
+title = ""
 
 [params]
-  defaultTheme = "dark"
-  # public git repo url only then enableGitInfo is true
-  gitRepo = "https://github.com/clifordjoshy/clifordjoshy.github.io"
-  dateFormat = "January 2, 2006"
-  # description for embeds
-  description = "hello there."
-	  # Header config
-  [params.header]
-    # LoveIt NEW | 0.2.0 Header title config
-    [params.header.title]
-      # URL of the LOGO
-      logo = ""
-      # title name
-      name = "clif"
-      # you can add extra information before the name (HTML format is supported), such as icons
-      pre = '<i class="fa-solid fa-laptop-code"></i>'
-      # you can add extra information after the name (HTML format is supported), such as icons
-      post = ""
+defaultTheme = "dark"
+# public git repo url only then enableGitInfo is true
+gitRepo = "https://github.com/clifordjoshy/clifordjoshy.github.io"
+dateFormat = "January 2, 2006"
+# description for embeds
+description = "hello there."
 
-  [params.page]
-    [params.page.share]
-      enable = false
-    [params.page.math]
-      enable = false
-    [params.page.comment]
-      enable = true
-      [params.page.comment.telegram]
-        enable = false
-        siteID = "K-lCQVu-"
-        limit = 10
-        color = ""
-        colorful = true
-        dislikes = false
-        outlined = false
-      [params.page.comment.giscus]
-        enable = true
-        repo = "clifordjoshy/clifordjoshy.github.io"
-        repoId = "R_kgDOInhGJA"
-        category = "Comments"
-        categoryId = "DIC_kwDOInhGJM4CWUOw"
-        # automatically adapt the current theme i18n configuration when empty
-        lang = ""
-        mapping = "pathname"
-        reactionsEnabled = "1"
-        emitMetadata = "0"
-        inputPosition = "top"
-        lazyLoading = false
-        lightTheme = "light"
-        darkTheme = "transparent_dark"
+# Author config
+[params.author]
+name = "Cliford"
+email = "reach@cliford.net"
+
+# Header config
+[params.header]
+# LoveIt NEW | 0.2.0 Header title config
+[params.header.title]
+# URL of the LOGO
+logo = ""
+# title name
+name = "clif"
+# you can add extra information before the name (HTML format is supported), such as icons
+pre = '<i class="fa-solid fa-laptop-code"></i>'
+# you can add extra information after the name (HTML format is supported), such as icons
+post = ""
+
+[params.page]
+[params.page.share]
+enable = false
+[params.page.math]
+enable = false
+[params.page.comment]
+enable = true
+[params.page.comment.telegram]
+enable = false
+siteID = "K-lCQVu-"
+limit = 10
+color = ""
+colorful = true
+dislikes = false
+outlined = false
+[params.page.comment.giscus]
+enable = true
+repo = "clifordjoshy/clifordjoshy.github.io"
+repoId = "R_kgDOInhGJA"
+category = "Comments"
+categoryId = "DIC_kwDOInhGJM4CWUOw"
+# automatically adapt the current theme i18n configuration when empty
+lang = ""
+mapping = "pathname"
+reactionsEnabled = "1"
+emitMetadata = "0"
+inputPosition = "top"
+lazyLoading = false
+lightTheme = "light"
+darkTheme = "transparent_dark"
 
 # Footer config
-  [params.footer]
-    enable = true
-    # LoveIt NEW | 0.2.0 Custom content (HTML format is supported)
-    custom = ''
-    # LoveIt NEW | 0.2.0 whether to show Hugo and theme info
-    hugo = true
-    # LoveIt NEW | 0.2.0 whether to show copyright info
-    copyright = true
-    # LoveIt NEW | 0.2.0 whether to show the author
-    author = true
-    # Site creation time
-    since = 2022
-    # license info (HTML format is supported)
-    license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+[params.footer]
+enable = true
+# LoveIt NEW | 0.2.0 Custom content (HTML format is supported)
+custom = ''
+# LoveIt NEW | 0.2.0 whether to show Hugo and theme info
+hugo = true
+# LoveIt NEW | 0.2.0 whether to show copyright info
+copyright = true
+# LoveIt NEW | 0.2.0 whether to show the author
+author = true
+# Site creation time
+since = 2022
+# license info (HTML format is supported)
+license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
 
-	# Home page config
-  [params.home]
-    rss = 10
-    # Home page profile
-    [params.home.profile]
-      enable = true
-      # URL of avatar shown in home page
-      avatarURL = "/avatar.png"
-      title = "hello! i'm cliford"
-      # subtitle shown in home page (HTML format is supported)
-      subtitle = "a developer, tiling window manager evangelist and all around FOSSy boy."
-      # whether to use typeit animation for subtitle
-      typeit = true
-      # whether to show social links
-      social = true
-      disclaimer = "if all goes as planned, you'll see some blog posts below this."
-    [params.home.posts]
-      # special amount of posts in each home posts page
-      paginate = 3
+# Home page config
+[params.home]
+rss = 10
+# Home page profile
+[params.home.profile]
+enable = true
+# URL of avatar shown in home page
+avatarURL = "/avatar.png"
+title = "hello! i'm cliford"
+# subtitle shown in home page (HTML format is supported)
+subtitle = "a developer, tiling window manager evangelist and all around FOSSy boy."
+# whether to use typeit animation for subtitle
+typeit = true
+# whether to show social links
+social = true
+disclaimer = "if all goes as planned, you'll see some blog posts below this."
+[params.home.posts]
+# special amount of posts in each home posts page
+paginate = 3
 
-  [params.section]
-    # special amount of posts in each section page
-    paginate = 20
-    dateFormat = "Jan 2"
+[params.section]
+# special amount of posts in each section page
+paginate = 20
+dateFormat = "Jan 2"
 
 # Social config about the author
-  [params.social]
-    GitHub = "clifordjoshy"
-    Linkedin = "cliford-joshy-15b648190"
-    Discord = "PaperStache#5235"
-		# StackOverflow="xx"
-    Email = "reach@cliford.net"
-    RSS = true
+[params.social]
+GitHub = "clifordjoshy"
+Linkedin = "cliford-joshy-15b648190"
+Discord = "PaperStache#5235"
+# StackOverflow="xx"
+Email = "reach@cliford.net"
+RSS = true
 
-  [params.typeit]
-    # typing speed between each step (measured in milliseconds)
-    speed = 50
-    # blinking speed of the cursor (measured in milliseconds)
-    cursorSpeed = 1000
-    # character used for the cursor (HTML format is supported)
-    cursorChar = "|"
-    # cursor duration after typing finishing (measured in milliseconds, "-1" means unlimited)
-    duration = -1
+[params.typeit]
+# typing speed between each step (measured in milliseconds)
+speed = 50
+# blinking speed of the cursor (measured in milliseconds)
+cursorSpeed = 1000
+# character used for the cursor (HTML format is supported)
+cursorChar = "|"
+# cursor duration after typing finishing (measured in milliseconds, "-1" means unlimited)
+duration = -1
 
 # Markup related configuration in Hugo
 [markup]
-  # Syntax Highlighting (https://gohugo.io/content-management/syntax-highlighting)
-  [markup.highlight]
-    # false is a necessary configuration (https://github.com/dillonzq/LoveIt/issues/158)
-    noClasses = false
+# Syntax Highlighting (https://gohugo.io/content-management/syntax-highlighting)
+[markup.highlight]
+# false is a necessary configuration (https://github.com/dillonzq/LoveIt/issues/158)
+noClasses = false

@@ -30,7 +30,7 @@
         data-srcset="{{ $small | safeURL }}, {{ $src | safeURL }} 1.5x, {{ $large | safeURL }} 2x"
         data-sizes="auto"
         alt="{{ $alt }}"
-        style="display:block; margin:0 auto; {{- with $width }} width:{{.}}{{ end }};{{- with $height }} height:{{.}}{{ end }};" />
+        style="display:block; margin:10px auto 0 auto; {{- with $width }} width:{{.}}{{ end }};{{- with $height }} height:{{.}}{{ end }};" />
 {{- if .Linked -}}
     </a>
 {{- end -}}
