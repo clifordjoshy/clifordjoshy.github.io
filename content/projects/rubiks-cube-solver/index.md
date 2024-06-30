@@ -1,5 +1,5 @@
 ---
-title: "Rubiks Cube Solver"
+title: "Rubik's Cube Solver"
 date: 2021-10-01T17:50:33+05:30
 tools: ["cpp", "mingw"]
 resources:
