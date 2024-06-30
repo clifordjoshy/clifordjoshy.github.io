@@ -125,12 +125,12 @@ enable = true
 avatarURL = "/avatar.png"
 title = "hello! i'm cliford"
 # subtitle shown in home page (HTML format is supported)
-subtitle = "a developer, tiling window manager evangelist and all around FOSSy boy."
+subtitle = "a developer, tinkerer and tiling window manager evangelist."
 # whether to use typeit animation for subtitle
 typeit = true
 # whether to show social links
 social = true
-disclaimer = "if all goes as planned, you'll see some blog posts below this."
+disclaimer = "i try to write technical blog posts. i also post life updates sometimes."
 [params.home.posts]
 # special amount of posts in each home posts page
 paginate = 3
