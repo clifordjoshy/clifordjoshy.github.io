@@ -1,7 +1,7 @@
 ---
 title: "Setting Up a Website"
 date: 2022-12-14T19:05:38+05:30
-tags: ["website", "hugo", "first", "web", "create"]
+tags: ["website", "hugo", "first", "web", "create", "technical"]
 ---
 
 ## (Evil) Backstory

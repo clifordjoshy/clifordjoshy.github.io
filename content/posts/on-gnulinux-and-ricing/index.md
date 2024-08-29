@@ -1,7 +1,7 @@
 ---
 title: "On GNU/Linux and Ricing"
 date: 2022-12-16T17:13:01+05:30
-tags: ["linux", "gnu", "gnu/linux", "control", "rice"]
+tags: ["linux", "gnu", "gnu/linux", "control", "rice", "technical"]
 resources:
   - name: "featured-image"
     src: "banner.png"
