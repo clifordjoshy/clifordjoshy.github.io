@@ -1,4 +1,20 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Docusaurus - tool - clifpage</title><link>http://cliford.net/tools/docusaurus/</link><description>Docusaurus - tool - clifpage</description><generator>Hugo -- gohugo.io</generator><language>en-in</language><lastBuildDate>Sun, 07 May 2023 15:21:50 +0530</lastBuildDate><atom:link href="http://cliford.net/tools/docusaurus/" rel="self" type="application/rss+xml"/><item><title>NITCbase - a toy RDBMS</title><link>http://cliford.net/projects/nitcbase/</link><pubDate>Sun, 07 May 2023 15:21:50 +0530</pubDate><author>Author</author><guid>http://cliford.net/projects/nitcbase/</guid><description><![CDATA[<div class="featured-image">
                 <img src="https://github.com/NITCbase/nitcbase.github.io/raw/main/static/img/FrontBannerLogo.png" referrerpolicy="no-referrer">
-            </div>Links &nbsp;GitHub &nbsp;Website About NITCbase is a course aimed at an undergraduate student that guides them through the implementation of an elementary RDBMS. The database is designed to have 8 layers covered top-down as follows:
-Frontend Interface: This layer interacts with the user, and translates high level SQL-like queries from the user into calls to appropriate methods of the lower layers. Schema Layer: All DDL (Data Definition Language) commands of NITCbase - such as commands for creating, deleting, opening, closing and renaming relations; commands for renaming attributes of a relation and so on - are directed to this layer.]]></description></item></channel></rss>
+            </div><h2 id="links">Links</h2>
+<p><a href="https://github.com/NITCbase" target="_blank" rel="noopener noreffer" style="white-space:nowrap;"><i class="fa-icon fa-brands fa-github" aria-hidden="true"></i>&nbsp;GitHub</a>
+ 
+<a href="https://nitcbase.github.io" target="_blank" rel="noopener noreffer" style="white-space:nowrap;"><i class="fa-icon fa-solid fa-globe" aria-hidden="true"></i>&nbsp;Website</a>
+</p>
+<h2 id="about">About</h2>
+<p>NITCbase is a course aimed at an undergraduate student that guides them through the implementation of an elementary RDBMS. The database is designed to have 8 layers covered top-down as follows:</p>
+<ol>
+<li><strong>Frontend Interface</strong>: This layer interacts with the user, and translates high level SQL-like queries from the user into calls to appropriate methods of the lower layers.</li>
+<li><strong>Schema Layer</strong>: All DDL (Data Definition Language) commands of NITCbase - such as commands for creating, deleting, opening, closing and renaming relations; commands for renaming attributes of a relation and so on - are directed to this layer.</li>
+<li><strong>Algebra Layer</strong>: All DML (Data Manipulation Language) commands of NITCbase - insert, select, project and join - are directed to this layer.</li>
+<li><strong>Block Access Layer</strong>: This layer implements a lot of the common logic used for the implementation of various functionality in the higher layers. It handles core functionality like searching through a disk block, inserting values into a disk block and so on.</li>
+<li><strong>B+ Tree Layer</strong>: This layer handles relation indexing operations using B+ trees. The implementation of all B+ tree operations are handled in this layer and an abstraction is made available to higher layers.</li>
+<li><strong>Cache Layer</strong>: This layer implements the run time memory data structures associated with <em>open</em> relations of the database.</li>
+<li><strong>Buffer Layer</strong>: This layer is used for buffered access to the disk. All higher layers access the disk through this layer. An LRU buffer of disk blocks is maintained in memory to optimise the disk access operations in the database.</li>
+<li><strong>Physical Layer</strong>: This layer serves as an abstraction to handle low-level disk operations and makes available methods to read and write into disk blocks.</li>
+</ol>
+<p>The project features a <a href="https://nitcbase.github.io/docs/Roadmap" target="_blank" rel="noopener noreffer ">roadmap</a> which divides the implementation into logical stages and explains the necessary theory required for the implementation at each stage. Further details about the design can be found <a href="https://nitcbase.github.io/docs/Design/Architecture" target="_blank" rel="noopener noreffer ">here</a>.</p>]]></description></item></channel></rss>
