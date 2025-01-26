@@ -67,6 +67,12 @@ While my dream of building my own PC remains indefinitely postponed, I do have m
 
 I've slowly been working my way out of an ages-long reading slump, with all this newly found free time. ({{<raw>}}<sub><sup>What do you mean I don't have to be doing assignments and studying when I'm not working? What is my purpose, then?</sub></sup>{{</raw>}}). Some credit for that must be attributed to [Hyderabad Reads](https://instagram.com/hyderabadreads), which is just a bunch of people that show up every week to sit and read under the trees in KBR park. Sitting in the shade, listening to birds, peacocks walking amidst you definitely feels a bit magical (if only the weather was always cold and pleasant!).
 
+### (mad for) mandi
+
+In all our time in Hyderabad, if there's one restaurant we religiously go to, it has to be Mandi@36. The food here just consistently manages to hit that spot deep inside my soul. In fact, it is so good that it took me a year to finally grab the below picture (hard to remember to take pictures when you have this in front of you).
+
+{{<image src="mandi.png" height="300px">}}
+
 ### the downsides?
 
 All the above being said, it's not like my life currently is all rainbows and sunshine. The changing priorities have definitely impacted how I choose to spend my time. Turns out spending all day coding really dampens the amount of excess time you want to spend in front of the screen doing hobbyist coding. I'm not so sure if that's really a bad thing though; I do enjoy the work and the challenges; it's just an interesting observation in myself. Perhaps it's something for me to pick back up in the future.
