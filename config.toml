@@ -125,7 +125,7 @@ enable = true
 avatarURL = "/avatar.png"
 title = "hello! i'm cliford"
 # subtitle shown in home page (HTML format is supported)
-subtitle = "a developer, tinkerer and tiling window manager evangelist."
+subtitle = "a developer, tinkerer and automator of minor inconveniences."
 # whether to use typeit animation for subtitle
 typeit = true
 # whether to show social links
