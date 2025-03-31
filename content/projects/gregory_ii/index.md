@@ -1,5 +1,5 @@
 ---
-title: "Gregory II"
+title: "Gregory II - a vocabulary app"
 subtitle: "an app to help me learn GRE words"
 date: 2025-03-31T11:31:38+05:30
 tools: ["react", "bootstrap"]
