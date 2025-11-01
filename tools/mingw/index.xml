@@ -1,20 +1,20 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Mingw - tool - clifpage</title><link>http://cliford.net/tools/mingw/</link><description>Mingw - tool - clifpage</description><generator>Hugo -- gohugo.io</generator><language>en-in</language><lastBuildDate>Fri, 01 Oct 2021 17:50:33 +0530</lastBuildDate><atom:link href="http://cliford.net/tools/mingw/" rel="self" type="application/rss+xml"/><item><title>Rubik's Cube Solver</title><link>http://cliford.net/projects/rubiks-cube-solver/</link><pubDate>Fri, 01 Oct 2021 17:50:33 +0530</pubDate><author>Author</author><guid>http://cliford.net/projects/rubiks-cube-solver/</guid><description><![CDATA[<h2 id="links">Links</h2>
-<p><a href="https://github.com/clifordjoshy/thistlethwaite-rubiks" target="_blank" rel="noopener noreffer" style="white-space:nowrap;"><i class="fa-icon fa-brands fa-github" aria-hidden="true"></i>&nbsp;GitHub</a>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mingw on clifpage</title><link>http://cliford.net/tools/mingw/</link><description>Recent content in Mingw on clifpage</description><generator>Hugo</generator><language>en-in</language><managingEditor>reach@cliford.net (Cliford)</managingEditor><webMaster>reach@cliford.net (Cliford)</webMaster><lastBuildDate>Sun, 30 Jun 2024 23:14:17 +0530</lastBuildDate><atom:link href="http://cliford.net/tools/mingw/index.xml" rel="self" type="application/rss+xml"/><item><title>Rubik's Cube Solver</title><link>http://cliford.net/projects/rubiks-cube-solver/</link><pubDate>Fri, 01 Oct 2021 17:50:33 +0530</pubDate><author>reach@cliford.net (Cliford)</author><guid>http://cliford.net/projects/rubiks-cube-solver/</guid><description>&lt;h2 id="links"&gt;Links&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/clifordjoshy/thistlethwaite-rubiks" target="_blank" rel="noopener noreffer" style="white-space:nowrap;"&gt;&lt;i class="fa-icon fa-brands fa-github" aria-hidden="true"&gt;&lt;/i&gt;&amp;nbsp;GitHub&lt;/a&gt;
  
-<a href="https://www.jaapsch.net/puzzles/thistle.htm" target="_blank" rel="noopener noreffer" style="white-space:nowrap;"><i class="fa-icon fa-solid fa-book" aria-hidden="true"></i>&nbsp;Thisthlethwaite Algorithm Reference</a>
-</p>
-<h2 id="about">About</h2>
-<p>My implementation of a Rubik&rsquo;s cube solver using the Thisthlethwaite algorithm. A solution can be found for any shuffled state in 45 moves or less.</p>
-<p>The algorithm works by splitting the solving into various stages such that</p>
-<ul>
-<li>each stage only uses a subset of the possible moves</li>
-<li>moves used in a stage will not be needed in any subsequent stages</li>
-</ul>
-<p>With the above restrictions, an <a href="https://en.wikipedia.org/wiki/Iterative_deepening_depth-first_search" target="_blank" rel="noopener noreffer ">iterative deepening depth-first search</a> is conducted on the state space until a solution is obtained.</p>]]></description></item><item><title>Minimax Chess Bot and GUI</title><link>http://cliford.net/projects/chess-bot/</link><pubDate>Wed, 09 Dec 2020 17:40:49 +0530</pubDate><author>Author</author><guid>http://cliford.net/projects/chess-bot/</guid><description><![CDATA[<h2 id="links">Links</h2>
-<p><a href="https://github.com/clifordjoshy/minimax-chess-py" target="_blank" rel="noopener noreffer" style="white-space:nowrap;"><i class="fa-icon fa-brands fa-github" aria-hidden="true"></i>&nbsp;GitHub - Python Version</a>
+&lt;a href="https://www.jaapsch.net/puzzles/thistle.htm" target="_blank" rel="noopener noreffer" style="white-space:nowrap;"&gt;&lt;i class="fa-icon fa-solid fa-book" aria-hidden="true"&gt;&lt;/i&gt;&amp;nbsp;Thisthlethwaite Algorithm Reference&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id="about"&gt;About&lt;/h2&gt;
+&lt;p&gt;My implementation of a Rubik&amp;rsquo;s cube solver using the Thisthlethwaite algorithm. A solution can be found for any shuffled state in 45 moves or less.&lt;/p&gt;
+&lt;p&gt;The algorithm works by splitting the solving into various stages such that&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;each stage only uses a subset of the possible moves&lt;/li&gt;
+&lt;li&gt;moves used in a stage will not be needed in any subsequent stages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With the above restrictions, an &lt;a href="https://en.wikipedia.org/wiki/Iterative_deepening_depth-first_search" target="_blank" rel="noopener noreffer "&gt;iterative deepening depth-first search&lt;/a&gt; is conducted on the state space until a solution is obtained.&lt;/p&gt;</description></item><item><title>Minimax Chess Bot and GUI</title><link>http://cliford.net/projects/chess-bot/</link><pubDate>Wed, 09 Dec 2020 17:40:49 +0530</pubDate><author>reach@cliford.net (Cliford)</author><guid>http://cliford.net/projects/chess-bot/</guid><description>&lt;h2 id="links"&gt;Links&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/clifordjoshy/minimax-chess-py" target="_blank" rel="noopener noreffer" style="white-space:nowrap;"&gt;&lt;i class="fa-icon fa-brands fa-github" aria-hidden="true"&gt;&lt;/i&gt;&amp;nbsp;GitHub - Python Version&lt;/a&gt;
  
-<a href="https://github.com/clifordjoshy/minimax-chess-cpp" target="_blank" rel="noopener noreffer" style="white-space:nowrap;"><i class="fa-icon fa-brands fa-github" aria-hidden="true"></i>&nbsp;GitHub - C&#43;&#43; Version</a>
-</p>
-<h2 id="about">About</h2>
-<p>This is my implementation of a single-player chess game using the minimax algorithm (which is an algorithm that can be used to generate optimal solutions for a zero-sum two player game) with alpha-beta pruning. A GUI was also written to make use of the bot and provide a single-player chess game experience.</p>
-<p>There were two separate implementations that I did.</p>]]></description></item></channel></rss>
+&lt;a href="https://github.com/clifordjoshy/minimax-chess-cpp" target="_blank" rel="noopener noreffer" style="white-space:nowrap;"&gt;&lt;i class="fa-icon fa-brands fa-github" aria-hidden="true"&gt;&lt;/i&gt;&amp;nbsp;GitHub - C&amp;#43;&amp;#43; Version&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id="about"&gt;About&lt;/h2&gt;
+&lt;p&gt;This is my implementation of a single-player chess game using the minimax algorithm (which is an algorithm that can be used to generate optimal solutions for a zero-sum two player game) with alpha-beta pruning. A GUI was also written to make use of the bot and provide a single-player chess game experience.&lt;/p&gt;
+&lt;p&gt;There were two separate implementations that I did.&lt;/p&gt;</description></item></channel></rss>
