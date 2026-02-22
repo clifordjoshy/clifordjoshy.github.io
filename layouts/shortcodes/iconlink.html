@@ -1,0 +1,29 @@
+{{- $iconName := cond .IsNamedParams (.Get "icon") (.Get 0) -}}
+{{- $text := cond .IsNamedParams (.Get "text") (.Get 1) -}}
+{{- $url := cond .IsNamedParams (.Get "url") (.Get 2) -}}
+{{- $iconClass := (.Get "iconclass") -}}
+
+{{- $iconMap := dict "github" "fa-icon fa-brands fa-github" -}}
+{{- $iconMap  = dict "website" "fa-icon fa-solid fa-globe" | merge $iconMap -}}
+{{- $iconMap  = dict "reference" "fa-icon fa-solid fa-book" | merge $iconMap -}}
+{{- $iconMap  = dict "playstore" "fa-icon fa-brands fa-google-play" | merge $iconMap -}}
+{{- $iconMap  = dict "video" "fa-icon fa-brands fa-youtube" | merge $iconMap -}}
+
+
+{{- with $iconName -}}
+  {{- with index $iconMap (lower .) -}}
+    {{- $iconClass = . -}}
+  {{- else -}}
+    {{- errorf "iconlink: Undefined icon name %q" . -}}
+  {{- end -}}
+{{- end -}}
+
+<a href="{{ $url }}" target="_blank" rel="noopener noreffer" style="white-space:nowrap;">
+  {{- with $iconClass -}}
+    {{- dict "Class" $iconClass | partial "plugin/icon.html" -}}
+    &nbsp;
+  {{- else -}}
+    {{- warnf "iconlink: No icon class or name found %q" .Page -}}
+  {{- end -}}
+  {{- $text -}}
+</a>
