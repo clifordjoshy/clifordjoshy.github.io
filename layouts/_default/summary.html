@@ -30,7 +30,13 @@
 
     {{- /* Summary content */ -}}
     <div class="content">
-        {{- with .Summary -}}
+        {{/*  ignore everything before first p tag. we don't want titles */}}
+        {{- $summaryParts := split .Summary "<p" -}}
+        {{- $summaryContent := cond (gt (len $summaryParts) 1)
+            (printf "<p%s" (delimit (after 1 $summaryParts) "<p"))
+            .Summary -}}
+
+        {{- with $summaryContent -}}
             {{- dict "Content" . "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
         {{- else -}}
             {{- .Description | safeHTML -}}
