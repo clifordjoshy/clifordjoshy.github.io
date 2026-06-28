@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Qemu - tool - clifpage</title><link>http://cliford.net/tools/qemu/</link><description>Qemu - tool - clifpage</description><generator>Hugo -- gohugo.io</generator><language>en-in</language><managingEditor>reach@cliford.net (Cliford)</managingEditor><webMaster>reach@cliford.net (Cliford)</webMaster><lastBuildDate>Tue, 03 Dec 2024 11:31:22 +0530</lastBuildDate><atom:link href="http://cliford.net/tools/qemu/" rel="self" type="application/rss+xml"/><item><title>Xv6, a simple Unix-like teaching operating system</title><link>http://cliford.net/projects/xv6/</link><pubDate>Tue, 03 Dec 2024 11:31:22 +0530</pubDate><author>Cliford</author><guid>http://cliford.net/projects/xv6/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/run.png" referrerpolicy="no-referrer">
+            </div><h2 id="links">Links</h2>
+<p><a href="https://github.com/clifordjoshy/xv6-implementation" target="_blank" rel="noopener noreffer" style="white-space:nowrap;"><i class="fa-icon fa-brands fa-github" aria-hidden="true"></i>&nbsp;GitHub</a>
+ 
+<a href="https://pdos.csail.mit.edu/6.1810/2023/xv6.html" target="_blank" rel="noopener noreffer" style="white-space:nowrap;"><i class="fa-icon fa-solid fa-book" aria-hidden="true"></i>&nbsp;Reference</a>
+</p>
+<h2 id="about">About</h2>
+<p>From the README,</p>
+<blockquote>
+<p>xv6 is a re-implementation of Dennis Ritchie&rsquo;s and Ken Thompson&rsquo;s Unix
+Version 6 (v6).  xv6 loosely follows the structure and style of v6,
+but is implemented for a modern RISC-V multiprocessor using ANSI C.</p></blockquote>
+<p>This is an undergraduate course at MIT that has students implement a minimal Unix-like kernel with the following assignments (ref the <a href="https://pdos.csail.mit.edu/6.1810/2023/schedule.html" target="_blank" rel="noopener noreffer ">course schedule</a>)</p>]]></description></item></channel></rss>
