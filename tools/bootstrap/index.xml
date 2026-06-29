@@ -7,10 +7,9 @@
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.img-loader').forEach(function (wrapper) {
     var img = wrapper.querySelector('img');
-    console.log('img', img);
     var tpl = wrapper.querySelector('template');
-    console.log('tpl', tpl);
     if (!img || !tpl) return;
+
     function clearLoader() {
       var el = wrapper.querySelector('.loader-for-img');
       if (el) el.remove();
@@ -30,11 +29,11 @@ document.addEventListener('DOMContentLoaded', function () {
     img.addEventListener('error', clearLoader, { once: true });
   });
 });
-</script><figure><span class="img-loader" style="position: relative; display: block; margin: 20px auto 0 auto; width: fit-content; height: 300px;">
+</script><figure><div class="img-loader" style="margin: 20px auto 0 auto; width: fit-content; height: 300px;">
     <template>
       
     </template>
-    op
-  </span><figcaption class="image-caption" style="text-align: center;">the word page</figcaption>
+    
+  </div><figcaption class="image-caption" style="text-align: center;">the word page</figcaption>
 </figure>
 <p>The <code>&quot;SHOW&quot;</code> button displays the definition of the word, following which you can mark it as <code>&quot;GOT IT&quot;</code> or <code>&quot;NOPE&quot;</code>, following which a new word is displayed. The number in the top left indicates how many words you have left in the word list. This info is saved to local storage, so your vocabulary choices are saved across sessions. Once you&rsquo;ve classified every word in the list is when the real use comes in.</p>]]></description></item></channel></rss>
