@@ -3,15 +3,44 @@
 
 &lt;h2 id="about">About&lt;/h2>
 &lt;p>An app to help improve your vocabulary. While the word lists above are specific to GRE, it&amp;rsquo;s easy enough to swap out the &lt;code>words.json&lt;/code> with any word list you want. The repo above currently contains deduplicated words from the &lt;a href="https://www.gregmat.com/recommended-resources" target="_blank" rel="noopener noreffer ">GregMat&lt;/a> and &lt;a href="https://s3.amazonaws.com/magoosh.resources/magoosh-gre-1000-words_oct01.pdf" target="_blank" rel="noopener noreffer ">Magoosh&lt;/a> word lists.&lt;/p>
-&lt;figure>&lt;a class="lightgallery" href="http://cliford.net/projects/gregory_ii/word.png" title="/projects/gregory_ii/word.png" data-thumbnail="/projects/gregory_ii/word.png" data-sub-html="&lt;h2>the word page&lt;/h2>">&lt;img
- class="lazyload"
- src="http://cliford.net/svg/loading.min.svg"
- data-src="http://cliford.net/projects/gregory_ii/word.png"
- data-srcset="http://cliford.net/projects/gregory_ii/word.png, http://cliford.net/projects/gregory_ii/word.png 1.5x, http://cliford.net/projects/gregory_ii/word.png 2x"
- data-sizes="auto"
- alt="/projects/gregory_ii/word.png"
- style="display:block; margin:20px auto 0 auto; width:620; height:300px;" />&lt;/a>&lt;figcaption class="image-caption">the word page&lt;/figcaption>
- &lt;/figure>
+&lt;script>
+document.addEventListener('DOMContentLoaded', function () {
+ document.querySelectorAll('.img-loader').forEach(function (wrapper) {
+ var img = wrapper.querySelector('img');
+ console.log('img', img);
+ var tpl = wrapper.querySelector('template');
+ console.log('tpl', tpl);
+ if (!img || !tpl) return;
+ function clearLoader() {
+ var el = wrapper.querySelector('.loader-for-img');
+ if (el) el.remove();
+ img.style.opacity = '1';
+ }
+
+ if (img.complete) {
+ tpl.remove();
+ return;
+ }
+
+ img.style.opacity = '0';
+ wrapper.insertBefore(tpl.content.cloneNode(true), img);
+ tpl.remove();
+
+ img.addEventListener('load', clearLoader, { once: true });
+ img.addEventListener('error', clearLoader, { once: true });
+ });
+});
+&lt;/script>&lt;figure>&lt;span class="img-loader" style="position: relative; display: block; margin: 20px auto 0 auto; width: fit-content; height: 300px;">
+ &lt;template>
+ &lt;img src="http://cliford.net/svg/loading.min.svg" style="object-fit: scale-down; width: 100%; height: 100%;" />
+ &lt;/template>
+ &lt;img
+ src="word.png"
+ 
+ style="display: block; object-fit: scale-down; width: 100%; height: 100%; transition: opacity .2s ease;"
+ />op
+ &lt;/span>&lt;figcaption class="image-caption" style="text-align: center;">the word page&lt;/figcaption>
+&lt;/figure>
 &lt;p>The &lt;code>&amp;quot;SHOW&amp;quot;&lt;/code> button displays the definition of the word, following which you can mark it as &lt;code>&amp;quot;GOT IT&amp;quot;&lt;/code> or &lt;code>&amp;quot;NOPE&amp;quot;&lt;/code>, following which a new word is displayed. The number in the top left indicates how many words you have left in the word list. This info is saved to local storage, so your vocabulary choices are saved across sessions. Once you&amp;rsquo;ve classified every word in the list is when the real use comes in.&lt;/p></description></item><item><title>Xv6, a simple Unix-like teaching operating system</title><link>http://cliford.net/projects/xv6/</link><pubDate>Tue, 03 Dec 2024 11:31:22 +0530</pubDate><author>reach@cliford.net (Cliford)</author><guid>http://cliford.net/projects/xv6/</guid><description>&lt;h2 id="links">Links&lt;/h2>
 &lt;p>&lt;a href="https://github.com/clifordjoshy/xv6-implementation" target="_blank" rel="noopener noreffer" style="white-space:nowrap;">&lt;i class="fa-icon fa-brands fa-github" aria-hidden="true">&lt;/i>&amp;nbsp;GitHub&lt;/a>
  
