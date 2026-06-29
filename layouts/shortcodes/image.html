@@ -1,0 +1,67 @@
+{{/*  An image shortcode which handles centering and sizing
+This overrides the theme shortcode (that adds lazysizes and lightgallery)
+
+It does make use of the loading.svg from the theme though.
+*/}}
+{{- $src := cond .IsNamedParams (.Get "src") (.Get 0) -}}
+{{- $caption := cond .IsNamedParams (.Get "caption") (.Get 1) -}}
+{{- $width := or (.Get "width") "fit-content" -}}
+{{- $height := or (.Get "height") "fit-content" -}}
+{{- $alt := (.Get "alt") -}}
+{{- $href := (.Get "href") -}}
+
+{{- $loading := resources.Get "svg/loading.svg" | minify -}}
+
+{{- if not (.Page.Scratch.Get "imgLoaderJSEmitted") -}}
+  {{- .Page.Scratch.Set "imgLoaderJSEmitted" true -}}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.img-loader').forEach(function (wrapper) {
+    var img = wrapper.querySelector('img');
+    console.log('img', img);
+    var tpl = wrapper.querySelector('template');
+    console.log('tpl', tpl);
+    if (!img || !tpl) return;
+    function clearLoader() {
+      var el = wrapper.querySelector('.loader-for-img');
+      if (el) el.remove();
+      img.style.opacity = '1';
+    }
+
+    if (img.complete) {
+      tpl.remove();
+      return;
+    }
+
+    img.style.opacity = '0';
+    wrapper.insertBefore(tpl.content.cloneNode(true), img);
+    tpl.remove();
+
+    img.addEventListener('load', clearLoader, { once: true });
+    img.addEventListener('error', clearLoader, { once: true });
+  });
+});
+</script>
+{{- end -}}
+
+{{- if $caption -}}<figure>{{- end -}}
+  {{- with $href -}}<a href="{{ . | safeURL }}">{{- end -}}
+
+  <span class="img-loader" style="position: relative; display: block; margin: 20px auto 0 auto; width: {{ $width }}; height: {{ $height }};">
+    <template>
+      <img src="{{ $loading.RelPermalink | safeURL }}" style="object-fit: scale-down; width: 100%; height: 100%;" />
+    </template>
+    <img
+      src="{{ $src | safeURL }}"
+      {{ with $alt }} alt="{{ . }}" {{ end }}
+      style="display: block; object-fit: scale-down; width: 100%; height: 100%; transition: opacity .2s ease;"
+    />op
+  </span>
+
+  {{- if $href -}}</a>{{- end -}}
+  {{- with $caption -}}
+<figcaption class="image-caption" style="text-align: center;">
+    {{- . | safeHTML -}}
+</figcaption>
+</figure>
+  {{- end -}}

@@ -18,13 +18,13 @@ While commonly conflated with this thought, I'm not referring to screen-time her
 
 I know this is a bit of a broad term, but what I mean here is anything that has an infinitely scrolling feed; think Reels, Shorts, LinkedIn. There's no measure to the amount of time I've lost just "doom-scrolling". Unlike the other items on this list, there is no argument I'd make in favour of this. Every time I snap out of a scrolling binge, I just feel so disoriented (is that what fried dopamine receptors feel like?).
 
-{{<tenor >}}
-{{<raw >}}
-<div class="tenor-gif-embed" data-postid="12082744756246344299" data-share-method="host" data-aspect-ratio="1.26316" data-width="300px">
-<a href="https://tenor.com/view/tv-simpsons-cloud-fist-grandpa-gif-12082744756246344299">old-man-yells-at-cloud.gif</a>
-</div>
-{{</raw >}}
-{{</tenor >}}
+{{<tenor
+    alt="old-man-yells-at-cloud.gif"
+    href="https://tenor.com/view/tv-simpsons-cloud-fist-grandpa-gif-12082744756246344299"
+    post_id="12082744756246344299"
+    aspect_ratio="1.26316"
+    width="300px"
+>}}
 
 It's especially hard to break this habit with how embedded these feeds are in most social media apps. I find myself unconsciouly gravitating into these quite often. You've got to applaude those with the mental fortitude to resist the temptation. For the rest of us, the common advice is to make the experience as frictional as possible; setting up app timers or using the web version of the UI for example. There's always the option of just not using these apps, but I genuinely do enjoy the social aspects of it. What I personally choose to do is use third-party clients that offer a lot more control on what you see. [Infinity For Reddit](https://github.com/Docile-Alligator/Infinity-For-Reddit) is one I'd highly recommend. There are similar work-arounds for other apps as well, though they might be a bit more ad{{<raw >}}<i>vanced</i>{{</raw >}} and not as straightforward.
 

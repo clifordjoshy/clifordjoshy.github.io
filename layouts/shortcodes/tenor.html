@@ -1,4 +1,23 @@
+{{- $href := (.Get "href") -}}
+{{- $post_id := (.Get "post_id") -}}
+{{- $aspect_ratio := (.Get "aspect_ratio") -}}
+{{- $alt := (.Get "alt") -}}
+{{- $width := (.Get "width") -}}
+
+{{- if not (and $width (and $aspect_ratio (and $href $post_id))) -}}
+  {{- errorf "tenor shortcode: missing required parameter 'post_id', 'href', 'width' and 'aspect_ratio'" -}}
+{{- end -}}
+
+
 <div style="display: flex; justify-content: center; margin: 20px 0px;">
-{{.Inner}}
+  <div
+    class="tenor-gif-embed"
+    data-postid="{{$post_id}}"
+    data-share-method="host"
+    data-aspect-ratio="{{$aspect_ratio}}"
+    data-width="{{$width}}"
+  >
+    <a href="{{$href}}">{{$alt}}</a>
+  </div>
+  <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 </div>
-<script type="text/javascript" async src="https://tenor.com/embed.js"></script>
