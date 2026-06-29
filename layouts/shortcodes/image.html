@@ -18,10 +18,9 @@ It does make use of the loading.svg from the theme though.
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.img-loader').forEach(function (wrapper) {
     var img = wrapper.querySelector('img');
-    console.log('img', img);
     var tpl = wrapper.querySelector('template');
-    console.log('tpl', tpl);
     if (!img || !tpl) return;
+
     function clearLoader() {
       var el = wrapper.querySelector('.loader-for-img');
       if (el) el.remove();
@@ -44,19 +43,31 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 {{- end -}}
 
+{{- $targetPath := $src -}}
+
+{{- if not (or (hasPrefix $src "http://") (hasPrefix $src "https://") (hasPrefix $src "/")) -}}
+    <!-- Resolve relative paths (e.g., "../../test.jpg") to an absolute path like /posts/a/img.jpg -->
+    {{- $targetPath = printf "/%s" (path.Clean (path.Join (path.Dir .Page.File.Path) $src)) -}}
+  {{- end -}}
+
+{{- if eq $targetPath "" -}}
+  {{- errorf "invalid image source: %s. Can't resolve path %s" $src $targetPath -}}
+{{- end -}}
+
+
 {{- if $caption -}}<figure>{{- end -}}
   {{- with $href -}}<a href="{{ . | safeURL }}">{{- end -}}
 
-  <span class="img-loader" style="position: relative; display: block; margin: 20px auto 0 auto; width: {{ $width }}; height: {{ $height }};">
+  <div class="img-loader" style="margin: 20px auto 0 auto; width: {{ $width }}; height: {{ $height }};">
     <template>
-      <img src="{{ $loading.RelPermalink | safeURL }}" style="object-fit: scale-down; width: 100%; height: 100%;" />
+      <img class="loader-for-img" src="{{ $loading.RelPermalink | safeURL }}" style="display: block; object-fit: scale-down; width: 100%; height: 100%;" />
     </template>
     <img
-      src="{{ $src | safeURL }}"
+      src="{{ $targetPath | safeURL }}"
       {{ with $alt }} alt="{{ . }}" {{ end }}
-      style="display: block; object-fit: scale-down; width: 100%; height: 100%; transition: opacity .2s ease;"
-    />op
-  </span>
+      style="object-fit: scale-down; width: 100%; height: 100%; transition: opacity .2s ease;"
+    />
+  </div>
 
   {{- if $href -}}</a>{{- end -}}
   {{- with $caption -}}
