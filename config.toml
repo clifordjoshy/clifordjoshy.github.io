@@ -1,4 +1,4 @@
-baseURL = 'http://cliford.net/'
+baseURL = 'https://cliford.net/'
 languageCode = 'en-in'
 title = 'clifpage'
 theme = 'LoveIt'
@@ -48,7 +48,8 @@ defaultTheme = "dark"
 gitRepo = "https://github.com/clifordjoshy/clifordjoshy.github.io"
 dateFormat = "January 2, 2006"
 # description for embeds
-description = "hello there."
+description = "cliford's blog."
+title = "cliford's blog."
 
 # Author config
 [params.author]
@@ -62,7 +63,7 @@ email = "reach@cliford.net"
 # URL of the LOGO
 logo = ""
 # title name
-name = "clif"
+name = "clifpage"
 # you can add extra information before the name (HTML format is supported), such as icons
 pre = '<i class="fa-solid fa-laptop-code"></i>'
 # you can add extra information after the name (HTML format is supported), such as icons

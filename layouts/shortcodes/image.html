@@ -1,5 +1,7 @@
 {{/*  An image shortcode which handles centering and sizing
 This overrides the theme shortcode (that adds lazysizes and lightgallery)
+We generate a full URL of the image instead of a relative path, so that
+RSS readers can render the image correctly.
 
 It does make use of the loading.svg from the theme though.
 */}}
@@ -18,23 +20,23 @@ It does make use of the loading.svg from the theme though.
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.img-loader').forEach(function (wrapper) {
     var img = wrapper.querySelector('img');
-    var tpl = wrapper.querySelector('template');
-    if (!img || !tpl) return;
-
-    function clearLoader() {
-      var el = wrapper.querySelector('.loader-for-img');
-      if (el) el.remove();
-      img.style.opacity = '1';
-    }
-
     if (img.complete) {
-      tpl.remove();
       return;
     }
 
+    var loader = document.createElement('img');
+    loader.src = '{{ $loading.RelPermalink | safeURL }}';
+    loader.style.objectFit = 'scale-down';
+    loader.style.width = '100%';
+    loader.style.height = '100%';
+
+    function clearLoader() {
+      loader.remove();
+      img.style.opacity = '1';
+    }
+
     img.style.opacity = '0';
-    wrapper.insertBefore(tpl.content.cloneNode(true), img);
-    tpl.remove();
+    wrapper.insertBefore(loader, img);
 
     img.addEventListener('load', clearLoader, { once: true });
     img.addEventListener('error', clearLoader, { once: true });
@@ -43,27 +45,33 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 {{- end -}}
 
-{{- $targetPath := $src -}}
+{{/*
+{{- $url := "" -}}
 
-{{- if not (or (hasPrefix $src "http://") (hasPrefix $src "https://") (hasPrefix $src "/")) -}}
+{{- if or (hasPrefix $src "http://") (hasPrefix $src "https://") -}}
+  {{- $url = $src -}}
+{{- else -}}
+  {{- if hasPrefix $src "/" -}}
+    {{- $targetPath = $src -}}
+  {{- else -}}
     <!-- Resolve relative paths (e.g., "../../test.jpg") to an absolute path like /posts/a/img.jpg -->
-    {{- $targetPath = printf "/%s" (path.Clean (path.Join (path.Dir .Page.File.Path) $src)) -}}
+    {{- $targetPath = path.Clean (path.Join (path.Dir .Page.RelPermalink) $src) -}}
   {{- end -}}
 
-{{- if eq $targetPath "" -}}
-  {{- errorf "invalid image source: %s. Can't resolve path %s" $src $targetPath -}}
+  {{- $url = printf "%s%s" (strings.TrimSuffix "/" .Site.BaseURL) $targetPath -}}
 {{- end -}}
 
+{{- if eq $url "" -}}
+  {{- errorf "invalid image source: %s" $src -}}
+{{- end -}}
+*/}}
 
 {{- if $caption -}}<figure>{{- end -}}
   {{- with $href -}}<a href="{{ . | safeURL }}">{{- end -}}
 
   <div class="img-loader" style="margin: 20px auto 0 auto; width: {{ $width }}; height: {{ $height }};">
-    <template>
-      <img class="loader-for-img" src="{{ $loading.RelPermalink | safeURL }}" style="display: block; object-fit: scale-down; width: 100%; height: 100%;" />
-    </template>
     <img
-      src="{{ $targetPath | safeURL }}"
+      src="{{ $src | safeURL }}"
       {{ with $alt }} alt="{{ . }}" {{ end }}
       style="object-fit: scale-down; width: 100%; height: 100%; transition: opacity .2s ease;"
     />
