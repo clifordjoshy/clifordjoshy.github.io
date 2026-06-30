@@ -45,33 +45,26 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 {{- end -}}
 
-{{/*
+
 {{- $url := "" -}}
 
-{{- if or (hasPrefix $src "http://") (hasPrefix $src "https://") -}}
+{{- if or (hasPrefix $src "http://") (hasPrefix $src "https://") (hasPrefix $src "/" -}}
   {{- $url = $src -}}
 {{- else -}}
-  {{- if hasPrefix $src "/" -}}
-    {{- $targetPath = $src -}}
-  {{- else -}}
-    <!-- Resolve relative paths (e.g., "../../test.jpg") to an absolute path like /posts/a/img.jpg -->
-    {{- $targetPath = path.Clean (path.Join (path.Dir .Page.RelPermalink) $src) -}}
-  {{- end -}}
-
-  {{- $url = printf "%s%s" (strings.TrimSuffix "/" .Site.BaseURL) $targetPath -}}
+  <!-- Resolve relative paths (e.g., "../../img.jpg") to an absolute path like /posts/a/img.jpg -->
+  {{- $url = path.Clean (path.Join (path.Dir .Page.RelPermalink) $src) -}}
 {{- end -}}
 
 {{- if eq $url "" -}}
   {{- errorf "invalid image source: %s" $src -}}
 {{- end -}}
-*/}}
 
 {{- if $caption -}}<figure>{{- end -}}
   {{- with $href -}}<a href="{{ . | safeURL }}">{{- end -}}
 
   <div class="img-loader" style="margin: 20px auto 0 auto; width: {{ $width }}; height: {{ $height }};">
     <img
-      src="{{ $src | safeURL }}"
+      src="{{ $url | safeURL }}"
       {{ with $alt }} alt="{{ . }}" {{ end }}
       style="object-fit: scale-down; width: 100%; height: 100%; transition: opacity .2s ease;"
     />
