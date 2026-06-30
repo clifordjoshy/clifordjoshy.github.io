@@ -18,7 +18,7 @@ It does make use of the loading.svg from the theme though.
   {{- .Page.Scratch.Set "imgLoaderJSEmitted" true -}}
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.img-loader').forEach(function (wrapper) {
+  document.querySelectorAll('.img-spinner').forEach(function (wrapper) {
     var img = wrapper.querySelector('img');
     if (img.complete) {
       return;
@@ -45,35 +45,28 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 {{- end -}}
 
+<figure style="margin: 20px 0; display: flex; align-items: center; flex-direction: column;">
 
-{{- $url := "" -}}
-
-{{- if or (hasPrefix $src "http://") (hasPrefix $src "https://") (hasPrefix $src "/") -}}
-  {{- $url = $src -}}
-{{- else -}}
-  <!-- Resolve relative paths (e.g., "../../img.jpg") to an absolute path like /posts/a/img.jpg -->
-  {{- $url = path.Clean (path.Join (path.Dir .Page.RelPermalink) $src) -}}
-{{- end -}}
-
-{{- if eq $url "" -}}
-  {{- errorf "invalid image source: %s" $src -}}
-{{- end -}}
-
-{{- if $caption -}}<figure>{{- end -}}
   {{- with $href -}}<a href="{{ . | safeURL }}">{{- end -}}
 
-  <div class="img-loader" style="margin: 20px auto 0 auto; width: {{ $width }}; height: {{ $height }};">
+  <div class="img-spinner" style="width: {{ $width }}; height: {{ $height }};">
     <img
-      src="{{ $url | safeURL }}"
+      src="{{ $src | safeURL }}"
       {{ with $alt }} alt="{{ . }}" {{ end }}
-      style="object-fit: scale-down; width: 100%; height: 100%; transition: opacity .2s ease;"
+      style="
+        object-fit: scale-down;
+        width: 100%;
+        height: 100%;
+        transition: opacity .2s ease;
+      "
     />
   </div>
 
   {{- if $href -}}</a>{{- end -}}
+
   {{- with $caption -}}
-<figcaption class="image-caption" style="text-align: center;">
-    {{- . | safeHTML -}}
-</figcaption>
-</figure>
+  <figcaption class="image-caption">
+      {{- . | safeHTML -}}
+  </figcaption>
   {{- end -}}
+</figure>
