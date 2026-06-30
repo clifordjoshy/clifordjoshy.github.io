@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 {{- $url := "" -}}
 
-{{- if or (hasPrefix $src "http://") (hasPrefix $src "https://") (hasPrefix $src "/" -}}
+{{- if or (hasPrefix $src "http://") (hasPrefix $src "https://") (hasPrefix $src "/") -}}
   {{- $url = $src -}}
 {{- else -}}
   <!-- Resolve relative paths (e.g., "../../img.jpg") to an absolute path like /posts/a/img.jpg -->
