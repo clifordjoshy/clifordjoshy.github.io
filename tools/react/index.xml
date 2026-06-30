@@ -1,4 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>React - tool - clifpage</title><link>http://cliford.net/tools/react/</link><description>React - tool - clifpage</description><generator>Hugo -- gohugo.io</generator><language>en-in</language><managingEditor>reach@cliford.net (Cliford)</managingEditor><webMaster>reach@cliford.net (Cliford)</webMaster><lastBuildDate>Mon, 31 Mar 2025 11:31:38 +0530</lastBuildDate><atom:link href="http://cliford.net/tools/react/" rel="self" type="application/rss+xml"/><item><title>Gregory II - a vocabulary app</title><link>http://cliford.net/projects/gregory_ii/</link><pubDate>Mon, 31 Mar 2025 11:31:38 +0530</pubDate><author>Cliford</author><guid>http://cliford.net/projects/gregory_ii/</guid><description><![CDATA[<h2 id="links">Links</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>React - tool - clifpage</title><link>https://cliford.net/tools/react/</link><description>React - tool - clifpage</description><generator>Hugo -- gohugo.io</generator><language>en-in</language><managingEditor>reach@cliford.net (Cliford)</managingEditor><webMaster>reach@cliford.net (Cliford)</webMaster><lastBuildDate>Mon, 31 Mar 2025 11:31:38 +0530</lastBuildDate><atom:link href="https://cliford.net/tools/react/" rel="self" type="application/rss+xml"/><item><title>Gregory II - a vocabulary app</title><link>https://cliford.net/projects/gregory_ii/</link><pubDate>Mon, 31 Mar 2025 11:31:38 +0530</pubDate><author>Cliford</author><guid>https://cliford.net/projects/gregory_ii/</guid><description><![CDATA[<h2 id="links">Links</h2>
 <a href="https://github.com/clifordjoshy/gregory_ii" target="_blank" rel="noopener noreffer" style="white-space:nowrap;"><i class="fa-icon fa-brands fa-github" aria-hidden="true"></i>&nbsp;GitHub</a>
 
 <h2 id="about">About</h2>
@@ -7,32 +7,29 @@
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.img-loader').forEach(function (wrapper) {
     var img = wrapper.querySelector('img');
-    var tpl = wrapper.querySelector('template');
-    if (!img || !tpl) return;
-
-    function clearLoader() {
-      var el = wrapper.querySelector('.loader-for-img');
-      if (el) el.remove();
-      img.style.opacity = '1';
-    }
-
     if (img.complete) {
-      tpl.remove();
       return;
     }
 
+    var loader = document.createElement('img');
+    loader.src = '\/svg\/loading.min.svg';
+    loader.style.objectFit = 'scale-down';
+    loader.style.width = '100%';
+    loader.style.height = '100%';
+
+    function clearLoader() {
+      loader.remove();
+      img.style.opacity = '1';
+    }
+
     img.style.opacity = '0';
-    wrapper.insertBefore(tpl.content.cloneNode(true), img);
-    tpl.remove();
+    wrapper.insertBefore(loader, img);
 
     img.addEventListener('load', clearLoader, { once: true });
     img.addEventListener('error', clearLoader, { once: true });
   });
 });
 </script><figure><div class="img-loader" style="margin: 20px auto 0 auto; width: fit-content; height: 300px;">
-    <template>
-      
-    </template>
     
   </div><figcaption class="image-caption" style="text-align: center;">the word page</figcaption>
 </figure>

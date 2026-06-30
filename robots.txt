@@ -61,4 +61,4 @@ Disallow: /
 User-agent: ZoominfoBot
 Disallow: /
 
-Sitemap: http://cliford.net/sitemap.xml
+Sitemap: https://cliford.net/sitemap.xml
