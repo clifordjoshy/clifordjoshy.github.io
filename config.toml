@@ -74,6 +74,8 @@ post = ""
 enable = false
 [params.page.math]
 enable = false
+[params.page.code]
+copy = false
 [params.page.comment]
 enable = true
 [params.page.comment.telegram]

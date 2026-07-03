@@ -60,7 +60,7 @@ An activity I can always fall back on, that requires very little planning, is ta
 
 ### draw
 
-I've always been a bit envious of those who were naturally talented at drawing. Unfortunately, I wasn't bone with a single artistic bone in my body. While I've always had this need to be instantly good at the things I try, I'm putting in an active effort to keep at it even when I don't like the final product. As I've been repeatedly told, you don't need to be good at your hobbies. The point of them is to have fun, and I do enjoy the process of sketching out some random picture I have on my phone. Hopefully, a year of bad sketches will grant me the skill to become one of those people who sit in a metro and sketch the things they see!
+I've always been a bit envious of those who were naturally talented at drawing. Unfortunately, I wasn't born with a single artistic bone in my body. While I've always had this need to be instantly good at the things I try, I'm putting in an active effort to keep at it even when I don't like the final product. As I've been repeatedly told, you don't need to be good at your hobbies. The point of them is to have fun, and I do enjoy the process of sketching out some random picture I have on my phone. Hopefully, a year of bad sketches will grant me the skill to become one of those people who sit in a metro and sketch the things they see!
 
 {{<image src="drawing.png" height="300px" caption="always grateful for my muse">}}
 
