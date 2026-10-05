@@ -1,5 +1,5 @@
 ---
-title: "Systemd, Sleep And Caffeine"
+title: "Systemd, Sleep and Caffeine"
 date: 2026-10-04T21:12:00+05:30
 tags: ["linux", "rice", "technical"]
 ---
