@@ -6,15 +6,15 @@ tags: ["linux", "rice", "technical"]
 
 ## preface
 
-Since my last post on setting up a caffeine widget, I've been drawn back into customizing my rice. It's been interesting to come back to all the widgets I wrote back in college and look at it with a couple years of experience. Notably, some event-loop blocking operations and a bunch of places where I chose to go the route of polling a shell command over using event-based triggers. I understand that the gains here are marginal (especially when I have like three Electron apps running at all times), but what kind of engineer am I if I don't try to eke out every last CPU cycle from my machine.
+Since my last post on setting up a caffeine widget, I've been drawn back into customizing my rice. It's been interesting to come back to all the widgets I wrote back in college and look at them with a couple years of experience. Notably, some event-loop-blocking operations and a bunch of places where I chose to go the route of polling a shell command over using event-based triggers. I understand that the gains here are marginal (especially when I have, like, three Electron apps running at all times), but what kind of engineer am I if I don't try to eke out every last CPU cycle from my machine?
 
-In this pursuit, I came across [GLib](https://www.gtk.org/docs/architecture/glib), originating from the GNOME Project / GTK. While this library offer a bunch of functionality, what intrigued me most was the [GLib Object System](https://docs.gtk.org/gobject/concepts.html#background) that offers "automatic transparent API bindings to other compiled or interpreted languages". When I was initially writing these widgets, I found all this too complicated to wrap my head around, and went the easy way of using shell commands (which probably just used the same library internally!). Now that I've rewritten everything, this post is just a reason to force myself to look into how exactly the internals of this are implemented and hopefully document the details for when I revisit these widgets in a couple years.
+In this pursuit, I came across [GLib](https://www.gtk.org/docs/architecture/glib), originating from the GNOME Project / GTK. While this library offers a bunch of functionality, what intrigued me most was the [GLib Object System](https://docs.gtk.org/gobject/concepts.html#background) that offers "automatic transparent API bindings to other compiled or interpreted languages". When I was initially writing these widgets, I found all this too complicated to wrap my head around, and went the easy way of using shell commands (which probably just used the same library internally!). Now that I've rewritten everything, this post is just an excuse to force myself to look into the internals of this and hopefully document the details for when I revisit these widgets in a couple years.
 
 {{<image src="https://imgs.xkcd.com/comics/tech_loops.png" height="350px" caption="relevant xkcd" href="https://xkcd.com/1579/">}}
 
 ## GObject Introspection
 
-GObject is essentially a library that provides object oriented capablities for C, and uses those same object definition APIs along with some generic glue code that allows other languages (that can already interop with C libraries) to instantiate and use these objects. The way this works is: we define a struct type, define the methods (following some strict naming conventions) and call some macros to add a bunch of boilerplate. That gives you an object (as in OOP) in C. Once you have the source files along with the compiled shared object, you can run [`g-ir-scanner`](https://gi.readthedocs.io/en/latest/tools/g-ir-scanner.html) which "introspects" through all of them, parsing the source files and using a small C program (called the "dumper") that links against your `.so` to query type info and finally generate a `.gir` file (an XML representation of your object). [`g-ir-compiler`](https://gi.readthedocs.io/en/latest/tools/g-ir-compiler.html) then converts the `.gir` file into a `.typelib` file, which is a compact, binary version of the `.gir`, that can be directly loaded into memory.
+GObject is essentially a library that provides object-oriented capabilities for C, and uses those same object definition APIs along with some generic glue code that allows other languages (that can already interop with C libraries) to instantiate and use these objects. The way this works is: we define a struct type, define the methods (following some strict naming conventions) and call some macros to add a generate of boilerplate. That gives you an object (as in OOP) in C. Once you have the source files along with the compiled shared object, you can run [`g-ir-scanner`](https://gi.readthedocs.io/en/latest/tools/g-ir-scanner.html) which "introspects" them, parsing the source files and using a small C program (called the "dumper") that links against your `.so` to query type info and finally generate a `.gir` file (an XML representation of your object). [`g-ir-compiler`](https://gi.readthedocs.io/en/latest/tools/g-ir-compiler.html) then converts the `.gir` file into a `.typelib` file, which is a compact, binary version of the `.gir`, that can be directly loaded into memory.
 
 {{< admonition tip Note >}}
 
@@ -22,10 +22,10 @@ You can find all the `.gir` files for the GI libs you have installed on your sys
 
 {{< /admonition >}}
 
-For a dynamically typed language, you can import a GObject Introspectable library using the generic GI language bindings which finds the relevant `.typelib` and infers all properties and methods at runtime (there's also projects that can generate type-stubs from the `.gir` files). For statically typed languages, you'll need to use a code gen tool that reads the `.gir` files and produces concrete bindings in the target language, which you can then use in your programs.
+In a dynamically typed language, you can import a GObject-Introspectable library using the generic GI language bindings which finds the relevant `.typelib` and infers all properties and methods at runtime (there's also projects that can generate type-stubs from the `.gir` files). For statically typed languages, you'll need to use a code gen tool that reads the `.gir` files and produces concrete bindings in the target language, which you can then use in your programs.
 
 
-Of course, this is ultimately all just a convention and there's probably a bunch of other ways to do this (and tools that do it), but I suppose enough people following the same convention makes it a standard. For what it's worth, I found this pretty cool. Also a disclaimer: the above is just a quick overview based on my understanding, the proper documentation is linked below.
+Of course, this is ultimately all just a convention, and there's probably a bunch of other ways to do this (and tools that do it), but I suppose enough people following the same convention makes it a standard. For what it's worth, I found this pretty cool. Also a disclaimer: the above is just a quick overview based on my understanding, the proper documentation is linked below.
 
 [^glib1] [^glib2]
 
@@ -33,14 +33,14 @@ Of course, this is ultimately all just a convention and there's probably a bunch
 
 The second (and more important to an event-based widget) bit of this journey is [D-Bus](https://www.freedesktop.org/wiki/Software/dbus/). D-Bus (short for "Desktop Bus") is essentially just a means for IPC. There's a _dbus_ daemon that any process can connect to via a socket or a TCP port. [Applications](https://www.freedesktop.org/wiki/Software/DbusProjects/) can query for the availability of objects, call remote methods on them, and request notification for the signals they emit. The daemon exposes a system-scoped  _system bus_ as well as a user-scoped _session bus_.
 
-"Objects" in D-Bus are uniquely identified through the combination of a bus name and object path. The bus name uniquely identifies a client application connected to the bus and the object path uniquely identifies the object within that application. Each application is automatically assigned a unique and effectively random bus name upon connection. Applications can alternatively request "well known" bus names to provide a simple and consistent location for other applications to access at run time.
+"Objects" in D-Bus are uniquely identified through the combination of a bus name and object path. The bus name uniquely identifies a client application connected to the bus, while the object path uniquely identifies the object within that application. Each connection is automatically assigned a unique and random bus name upon connection. Applications can alternatively request "well known" bus names to provide a simple and consistent location for other applications to access at run time.
 
-Every object supports particular methods and may emit particular signals which are collectively known as the object's members. All of an object's members are specified in "interfaces" (pretty much the same as their namesakes in Java).
+Every object supports particular methods and may emit particular signals, which are collectively known as the object's members. All of an object's members are specified in "interfaces" (pretty much the same as their namesakes in Java).
 
 
 {{< admonition tip Note >}}
 
-There are some [standard interfaces](https://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces) that are noted in the D-Bus that most objects implement for standard functionaly. For example, there's `org.freedesktop.DBus.Introspectable` which allows clients to see all members and properties from an object at runtime.
+There are some [standard interfaces](https://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces) that are noted in the D-Bus specification that most objects implement for standard functionality. For example, there's `org.freedesktop.DBus.Introspectable` which allows clients to see all members and properties from an object at runtime.
 
 {{< /admonition >}}
 
@@ -68,7 +68,7 @@ NAME       TYPE   SIGNATURE RESULT/VALUE FLAGS
 .UnInhibit method u         -            -
 ```
 
-Our simple library will call the above methods, and we can then use `dbus-monitor` to spy on this bus and see if our calls are getting there as intended. Our journey to conquer inhibition nears it's end!
+Our simple library will call the above methods, and we can then use `dbus-monitor` to spy on this bus and see if our calls are getting there as intended. Our journey to conquer inhibition nears its end!
 
 {{<image src="https://imgs.xkcd.com/comics/command_line_fu.png" height="250px" caption="another relevant xkcd" href="https://xkcd.com/196/">}}
 
@@ -272,7 +272,7 @@ Now to get back to where this all started. My widget bar
 
 {{<image src="../gnulinux/ricebar.png" width="100%" caption="picture from an old post, but nothing has changed visually">}}
 
-You can find all of this on my [dotfiles repo](https://github.com/clifordjoshy/dotfiles/tree/master/.config/awesome), but here are the highlights of what changed. At a high-level, all the polling bits have been replaced by libraries that make use of the above two concepts to allow native event-driven widgets.
+You can find all of this on my [dotfiles repo](https://github.com/clifordjoshy/dotfiles/tree/master/.config/awesome), but here are the highlights of what changed. At a high level, all the polling bits have been replaced by libraries that make use of the concepts we've covered so far to allow native event-driven widgets.
 
 ### NetworkManager
 
@@ -308,7 +308,7 @@ The calls to `ifstat` have now been replaced by reads to `/sys/class/net/%s/stat
 
 ### UPower
 
-The battery widget has pretty much always been using GObject, thanks to me starting from [this widget](https://github.com/berlam/awesome-upower-battery) as reference. This is where I got started on this whole refactor. The widget relies on the [UPower daemon](https://upower.freedesktop.org/) that subscribes to various udev events and makes battery information available on the `org.freedesktop.UPower` service. We can then use [libupower-glib](https://upower.freedesktop.org/docs/libupower-glib.html) to get these events into our widget.
+The battery widget has pretty much always used GObject, thanks to me starting from [this widget](https://github.com/berlam/awesome-upower-battery) as reference. This is where I got started on this whole refactor. The widget relies on the [UPower daemon](https://upower.freedesktop.org/) that subscribes to various udev events and makes battery information available on the `org.freedesktop.UPower` service. We can then use [libupower-glib](https://upower.freedesktop.org/docs/libupower-glib.html) to get these events into our widget.
 
 ```lua
 local upower = require("lgi").require("UPowerGlib")
@@ -326,7 +326,7 @@ end
 
 ### playerctl
 
-This earlier used to poll
+This previously polled
 
 ```bash
 playerctl metadata -af '{{playerName}}/#/{{title}}/#/{{artist}}/#/{{status}}'
@@ -373,11 +373,11 @@ There does exist a D-Bus [interface](https://www.freedesktop.org/wiki/Software/P
 
 ### DDC/CI
 
-This widget doesn't really fit in with the rest of this post, since it doesn't use D-Bus or Glib and still relies on polling. However, since I'm on the topic of widgets, I think it's pretty cool that you can control the brightness of external monitors over HDMI and it's a shame that it's not more common. `DDC`(or [Display Data Channel](https://en.wikipedia.org/wiki/Display_Data_Channel)) is what your monitor uses to communicate information about itself to your graphics card (over I²C). `DDC/CI` (command interface) specifies a means for a computer to send commands to the monitor. If your monitor does support this, then you can use `ddcutil` to get/set the brightness. There's also the [ddcci-backlight](https://gitlab.com/ddcci-driver-linux/ddcci-driver-linux) kernel module that you can use to create a symlink to `/sys/class/backlight/` which makes it appear as a built-in monitor.
+This widget doesn't really fit in with the rest of this post, since it doesn't use D-Bus or Glib and still relies on polling. However, since I'm on the topic of widgets, I think it's pretty cool that you can control the brightness of external monitors over HDMI and it's a shame that it's not more common. `DDC` (or [Display Data Channel](https://en.wikipedia.org/wiki/Display_Data_Channel)) is what your monitor uses to communicate information about itself to your graphics card (over I²C). `DDC/CI` (command interface) specifies a means for a computer to send commands to the monitor. If your monitor does support this, then you can use `ddcutil` to get/set the brightness. There's also the [ddcci-backlight](https://gitlab.com/ddcci-driver-linux/ddcci-driver-linux) kernel module that you can use to create a symlink to `/sys/class/backlight/` which makes it appear as a built-in monitor.
 
 ## fin
 
-If the word counts are to believed, this is my longest blog-post yet (though I'm pretty sure the code segments here are inflating that count). Reading this again, I'm not sure how readable (or entertaining) this actually is, but I'm glad to have attempted something akin to a deep-dive on this blog. I appreciate you getting this far. This post concludes the two-part ricing sidequest arc (for now).
+If the word counts are to be believed, this is my longest blog-post yet (though I'm pretty sure the code segments here are inflating that count). Reading this again, I'm not sure how readable (or entertaining) this actually is, but I'm glad to have attempted something akin to a deep dive on this blog. I appreciate you getting this far. This post concludes the two-part ricing sidequest arc (for now).
 
 [^glib1]: [GObject concepts - GTK docs](https://docs.gtk.org/gobject/concepts.html)
 [^glib2]: [GObject tutorial - GTK docs](https://docs.gtk.org/gobject/tutorial.html)
