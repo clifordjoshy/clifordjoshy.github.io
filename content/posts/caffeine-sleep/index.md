@@ -4,11 +4,11 @@ date: 2026-10-04T21:12:00+05:30
 tags: ["linux", "rice", "technical"]
 ---
 
-## Preface
+## preface
 
 If you were misled by the title to think this was some analysis of my broken sleep schedule and completely unrelated caffeine addiction, you can rest assured that this post has nothing to do with it. In recent times, the only technical things I play around with outside of work are my [rice]({{<relref "/posts/on-gnulinux-and-ricing">}}) and this website, so I figured I should write about that. I'm going to try and see if I can finish this in one sitting, which will hopefully set the precedent for me to write these posts more frequently and for smaller topics. To all three of my loyal subscribers, apologies if the quality here has declined (what standards were you expecting, anyway?😞).
 
-## No sleep
+## no sleep
 
 I'm very cool and hip and don't use a desktop environment. This means a bunch of things don't work out of the box. Atleast I saved on the bloat, right?
 
@@ -57,7 +57,7 @@ Now that we're one step closer, how do we know when the session is idle? Lucky f
 
 You'll notice that I decided to forgo the `IdleAction` bits and just suspend the system directly. Mostly so I could choose to `suspend` or `suspend-then-hibernate` based on charge, and I didn't really see much of a point in deferring this last step anyway. Another thing this script handles is idle timeouts before the X session begins. If I leave my machine at the login manager step, I don't want it to stay awake waiting desperately for a login. I got around this by tracking time since boot in a file, and a lack of login after 20 minutes is treated as idle. After I wake it from suspend, I have about a minute till the next run of the service which will re-suspend it. Not perfect, but works well enough for me!
 
-## Too much sleep
+## too much sleep
 
 Now that my machine was no longer patrolling the night, I started waking up to a well-rested suspended system. Open up a long Youtube video for breakfast time and let it play. 30 minutes into the most interesting video essay of the week, there goes my system to sleep again. What's happening? This was no time for an idle action. Well, think back to the earlier definition of idleness according to Xorg. It's the time since the last input from the keyboard or the mouse. I could just bump up these timers to something that's less plausible in daily use, but that's too easy. We must find a way to expand our scope of idleness to exclude
 1. A video being played
@@ -68,7 +68,7 @@ When in doubt, we ask: what do the DEs do? I couldn't find a lot of documentatio
 
 There's some discussion around this over at [this blog post](https://web.archive.org/web/20260303005844/https://www.jwz.org/blog/2020/12/xscreensaver-5-45/) if you're so inclined. I also found [xssproxy](https://github.com/vincentbernat/xssproxy) which implements the `org.freedesktop.ScreenSaver` D-Bus service from the spec above. I don't think this would cover all the cases I want (at least not at present) and personally, I'm happy with a hacky solution that works for me. There's also [caffeine-ng](https://codeberg.org/WhyNotHugo/caffeine-ng) that sits in your systray and allows you to control when to inhibit. While I won't be using the tool itself, I'll gladly steal the terminology.
 
-### Caffeine
+### caffeine
 
 At the risk of further outing myself as a `systemd` stan, I used [systemd-inhibit](https://www.freedesktop.org/software/systemd/man/systemd-inhibit.html) for this. It's essentially just a wrapper you can use while running a process, that inhibits suspend/hibernate/shutdown. Tie that into the window manager events, and it's just a matter of managing the below process.
 
@@ -92,7 +92,7 @@ This might need a bit more tuning, but it currently tracks
 2. Any window that gets maximized/unmaximized. This might not be a good blanket rule, but I pretty much only maximize videos, so it works for me.
 3. (not implemented yet) I already have a widget that tracks media playback. If the above two conditions don't suffice, I'll see if I can set up caffeination on media. But then again, I'd ideally want the system to suspend if I leave some music playing overnight.
 
-## Conclusion
+## conclusion
 
 As I write this, I realize that the above comes across more like a guide than a blog post and I see the huge walls of text in there. I've been down this rabbit hole for a while now, and would love to hear about anything I've overlooked. I'll see if I can keep this momentum going to write about some other stuff I've been doing (mostly around `DDC/CI`).
 

@@ -76,7 +76,7 @@ enable = false
 enable = false
 [params.page.code]
 copy = false
-maxShownLines = 10
+maxShownLines = 5
 [params.page.comment]
 enable = true
 [params.page.comment.telegram]
