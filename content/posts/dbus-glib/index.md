@@ -1,5 +1,5 @@
 ---
-title: "Widgeting, GObjects and D-Bus"
+title: "GObjects, D-Bus and Widgeting"
 date: 2026-10-10T10:46:54+05:30
 tags: ["linux", "rice", "technical"]
 ---
@@ -92,7 +92,9 @@ G_DECLARE_FINAL_TYPE(MyLibInhibitor, my_lib_inhibitor, MYLIB, INHIBITOR, GObject
 
 // methods of the MyLib.Inhibitor object
 MyLibInhibitor* my_lib_inhibitor_new(void);
-void my_lib_inhibitor_inhibit(MyLibInhibitor* self, const gchar* application_name, const gchar* reason);
+void my_lib_inhibitor_inhibit(MyLibInhibitor* self,
+                             const gchar* application_name,
+                             const gchar* reason);
 void my_lib_inhibitor_uninhibit(MyLibInhibitor* self);
 
 G_END_DECLS
@@ -154,7 +156,8 @@ static void my_lib_inhibitor_class_init(MyLibInhibitorClass* klass) {
  * Returns: (transfer full): A newly created #MyLibInhibitor.
  */
 MyLibInhibitor* my_lib_inhibitor_new(void) {
-  // not strictly required. just a convention since this method has stricter types than the void* that g_object_new returns
+  // not strictly required. just a convention since this method has stricter
+  // types than the void* that g_object_new returns
 
   return g_object_new(MYLIB_TYPE_INHIBITOR, NULL);
 }
@@ -167,7 +170,10 @@ MyLibInhibitor* my_lib_inhibitor_new(void) {
  *
  * Requests the screen saver inhibition.
  */
-void my_lib_inhibitor_inhibit(MyLibInhibitor* self, const gchar* application_name, const gchar* reason) {
+void my_lib_inhibitor_inhibit(MyLibInhibitor* self,
+                              const gchar* application_name,
+                              const gchar* reason) {
+
   if (!self->proxy || self->cookie != 0) return;
 
   GVariant* res = g_dbus_proxy_call_sync(
@@ -187,6 +193,7 @@ void my_lib_inhibitor_inhibit(MyLibInhibitor* self, const gchar* application_nam
  * Releases a previously held screen saver inhibition.
  */
 void my_lib_inhibitor_uninhibit(MyLibInhibitor* self) {
+
   if (!self->proxy || self->cookie == 0) return;
 
   GVariant* res = g_dbus_proxy_call_sync(
