@@ -3,10 +3,3 @@
 	src: url("/jetbrainsmono.ttf");
 }
 $code-font-family: "JetBrains Mono", Source Code Pro, Menlo, Consolas, Monaco, monospace;
-
-// center image by appending #center to src
-img[src$='#center']
-{
-    display: block;
-    margin: 0 auto;
-}

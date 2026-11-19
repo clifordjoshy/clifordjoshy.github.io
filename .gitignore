@@ -5,3 +5,4 @@ assets/jsconfig.json
 hugo_stats.json
 resume/*.pdf
 resume/*.synctex.gz
+.bin

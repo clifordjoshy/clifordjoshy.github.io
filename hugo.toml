@@ -1,5 +1,5 @@
 baseURL = 'https://cliford.net/'
-languageCode = 'en-in'
+locale = 'en-in'
 title = 'clifpage'
 theme = 'LoveIt'
 description = "A site with all of my projects, blog posts and anything else I want to show y'all."

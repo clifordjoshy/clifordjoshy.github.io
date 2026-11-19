@@ -13,6 +13,7 @@
             {{- .Params.Title | default (T $taxonomies) | default $taxonomies | dict "Some" | T "allSome" -}}
         </h2>
 
+        {{- /* Tag Cloud Page */ -}}
         <div class="tag-cloud-tags">
             {{- range (index .Site.Taxonomies $taxonomies).ByCount -}}
                 <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <sup>{{ .Count }}</sup></a>
