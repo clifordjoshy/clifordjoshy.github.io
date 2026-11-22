@@ -1,11 +1,11 @@
 ---
 title: "Minesweep.rs - an oxidized no guess Minesweeper"
-subtitle: "An implementation of Minesweeper that guarantees that boards are solvable without having to guess"
+subtitle: "an implementation of Minesweeper that guarantees that boards are solvable without having to guess"
 date: 2026-11-21T09:47:50+05:30
 tools: ["rust", "egui", "wasm"]
 ---
 
-{{<image src="https://github.com/clifordjoshy/minesweep.rs/raw/main/gui/assets/icon.svg" height="40px" alt="icon" caption="">}}
+{{<image src="/demos/minesweeper/icon.svg" height="40px" alt="icon">}}
 
 ## Links
 
