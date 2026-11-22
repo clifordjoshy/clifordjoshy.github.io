@@ -17,7 +17,7 @@ tools: ["rust", "egui", "wasm"]
 
 The original version of Minesweeper in Windows XP does not guarantee that every board is solvable, meaning you can end up in a situation where you have to make a random guess to proceed. This implementation aims to generate boards that can be solved using logical deductions alone, inspired by Simon Tatham's implementation of the same idea. While I referred to his excellent [blog](https://www.chiark.greenend.org.uk/~sgtatham/quasiblog/mines-solver/) for guidance, the implementation is my own.
 
-We achieve this by running a solver that applies the same deductions a human player would. Whenever the solver gets stuck, we run a "perturber" that moves one or more mines around, allowing the solver to make at least one new deduction. We repeat this process until the board is guaranteed to be solvable. I've gone into more detail about the approach in the accompanying post (coming soon).
+We achieve this by running a solver that applies the same deductions a human player would. Whenever the solver gets stuck, we run a "perturber" that moves one or more mines around, allowing the solver to make at least one new deduction. We repeat this process until the board is guaranteed to be solvable. I've gone into more detail about the approach in the accompanying [post]({{<relref "/posts/minesweeper">}}).
 
 Solving a Minesweeper board is NP-complete ([Kaye, 2000](https://link.springer.com/article/10.1007/BF03025367)). However, for the standard board sizes (and quite a bit more), we can run the perturb-solve loop fast enough (<1s) that it's basically unnoticeable. We can of course only do this after the first click, since the start position decides the state of the board.
 
@@ -49,6 +49,7 @@ The WebAssembly build of `minesweep.rs` is available at [/demos/minesweeper](/de
         aspect-ratio:3/2;
         border-radius:12px;
         min-height: 500px;
+        margin-top: 20px;
         "
   loading="lazy"
   title="minesweep.rs"
