@@ -1,0 +1,12 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Wasm - tool - clifpage</title><link>https://cliford.net/tools/wasm/</link><description>Wasm - tool - clifpage</description><generator>Hugo -- gohugo.io</generator><language>en-in</language><managingEditor>reach@cliford.net (Cliford)</managingEditor><webMaster>reach@cliford.net (Cliford)</webMaster><lastBuildDate>Sat, 21 Nov 2026 09:47:50 +0530</lastBuildDate><atom:link href="https://cliford.net/tools/wasm/" rel="self" type="application/rss+xml"/><item><title>Minesweep.rs - an oxidized no guess Minesweeper</title><link>https://cliford.net/projects/minesweeper/</link><pubDate>Sat, 21 Nov 2026 09:47:50 +0530</pubDate><author>reach@cliford.net (Cliford)</author><guid>https://cliford.net/projects/minesweeper/</guid><description><![CDATA[<figure style="margin: 20px 0; display: flex; align-items: center; flex-direction: column;"><div class="img-spinner">
+    
+  </div></figure>
+<h2 id="links">Links</h2>
+<p><a href="https://github.com/clifordjoshy/minesweep.rs" target="_blank" rel="noopener noreffer" style="white-space:nowrap;"><i class="fa-icon fa-brands fa-github" aria-hidden="true"></i>&nbsp;GitHub</a>
+ 
+<a href="/demos/minesweeper" target="_blank" rel="noopener noreffer" style="white-space:nowrap;"><i class="fa-icon fa-solid fa-globe" aria-hidden="true"></i>&nbsp;Demo</a>
+ 
+<a href="https://www.chiark.greenend.org.uk/~sgtatham/quasiblog/mines-solver/" target="_blank" rel="noopener noreffer" style="white-space:nowrap;"><i class="fa-icon fa-solid fa-book" aria-hidden="true"></i>&nbsp;Simon Tatham&#39;s Blog</a>
+</p>
+<h2 id="about">About</h2>
+<p>The original version of Minesweeper in Windows XP does not guarantee that every board is solvable, meaning you can end up in a situation where you have to make a random guess to proceed. This implementation aims to generate boards that can be solved using logical deductions alone, inspired by Simon Tatham&rsquo;s implementation of the same idea. While I referred to his excellent <a href="https://www.chiark.greenend.org.uk/~sgtatham/quasiblog/mines-solver/" target="_blank" rel="noopener noreffer ">blog</a> for guidance, the implementation is my own.</p>]]></description></item></channel></rss>
