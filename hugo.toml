@@ -43,7 +43,6 @@ url = "/resume.pdf"
 title = ""
 
 [params]
-defaultTheme = "dark"
 # public git repo url only then enableGitInfo is true
 gitRepo = "https://github.com/clifordjoshy/clifordjoshy.github.io"
 dateFormat = "January 2, 2006"
