@@ -22,7 +22,7 @@ You're given a grid of hidden cells, some of which contain mines. The aim is to 
 Others have tried (and succeeded) in solving this annoyance. Some of the interesting implementations I've seen:
 1. **[Kaboom](https://pwmarcz.pl/blog/kaboom/) by Paweł Marczewski**: This is a variant where the computer is actively playing against you. This means that if you click on a cell without making a logical deduction, it is guaranteed to be a mine. Conversely, if a group of cells cannot be opened without guessing, then any random guess amongst them is guaranteed to be safe. Definitely an interesting approach (and one I found to be too cruel 😞), and the linked blog post is an interesting read. His solver reduces the Minesweeper constraints into SAT and uses [MiniSat](http://minisat.se/) to solve it.
 2. **[Minesweepr](https://mrgris.com/projects/minesweepr/) by Drew Roos**: Don't think I'm good enough at math to describe it any better than the original author. _It can solve any board, with any topology, and exactly compute every cell's chance of being a mine. It achieves this through advanced combinatorial and probability analysis._ Though not exactly a "solvable Minesweeper", I still thought this was a pretty cool way to get around random guesses (and I suppose what more [advanced players](https://minesweepergame.com/strategy/guessing.php) would intuitively do?)
-3. **[Mines](https://www.chiark.greenend.org.uk/~sgtatham/quasiblog/mines-solver/) by Simon Tatham**: I'll admit that this was the inspiration for this whole project, and probably the first time I realized it was even possible to do something about this. The linked blog post along with [this one](https://www.chiark.greenend.org.uk/~sgtatham/puzzles/devel/writing.html) served as a good starting point. I think a lot of the ideas he suggests are very vibes-based, but the experience (see: his [puzzle collection](https://www.chiark.greenend.org.uk/~sgtatham/puzzles/)) really shows when those intuitions turn out to be right. I'd highly recommend reading his original post if you're setting out on a similar journey. The rest of this post covers my own attempt at these ideas, but of course, the implementation is completely independent (and in Rust!).
+3. **[Mines](https://www.chiark.greenend.org.uk/~sgtatham/quasiblog/mines-solver/) by Simon Tatham**: I'll admit that this was the inspiration for this whole project, and probably the first time I realized it was even possible to do something about this. The linked blog post (+ [this one](https://www.chiark.greenend.org.uk/~sgtatham/puzzles/devel/writing.html)) served as a good starting point. I think a lot of the ideas he suggests are very vibes-based, but his experience (see: [puzzle collection](https://www.chiark.greenend.org.uk/~sgtatham/puzzles/)) really shows when those intuitions turn out to be right. I'd highly recommend reading the original post if you're setting out on a similar journey. The rest of this post covers my own attempt at these ideas, but of course, the implementation is completely independent (and in Rust!).
 
 ## Implementation
 
@@ -30,7 +30,7 @@ At a high level, we achieve a solvable board by running a solver that applies th
 
 ### Solver
 
-You might have already guessed from the SAT-reduction above, but solving a Minesweeper board is NP-complete ([Kaye, 2000](https://link.springer.com/article/10.1007/BF03025367)). However, for the standard board sizes (and quite a bit more), we can run the perturb-solve loop fast enough (<1s) that it's basically unnoticeable. We can of course only do this after the first click, since the start position decides the state of the board.
+You might have already guessed from the SAT-reduction above, but solving a Minesweeper board is NP-complete ([Kaye, 2000](https://link.springer.com/article/10.1007/BF03025367)). However, for the standard board sizes (and quite a bit more), we can run the perturb-solve loop fast enough that it's basically unnoticeable. We can of course only do this after the first click, since the start position decides the state of the board.
 
 As I see it, the solver essentially comes down to three cases.
 
@@ -59,8 +59,8 @@ This is the simplest case.
 ```
 
 The constraints imposed by one revealed cell can be narrowed down using those imposed by a neighbouring revealed cell. This allows us to flag or open cells that aren't affected by the constraining neighbour. For example,
-1. In case 1 above, the highlighted cell is definitely a mine since we know for sure that only one of the other two hidden cells can be a mine (because of the 1 below them).
-2. In case 2, the highlighted cells are definitely safe since we know for sure that one among the non-highlighted hidden cells must be a mine (from the 2) and therefore the 1 guarantees that the other three hidden cells will not be a mine.
+1. In case 1 above, the highlighted cell is definitely a mine since we know for sure that only one of the other two hidden cells can be a mine (because of the `1` below them).
+2. In case 2, the highlighted cells are definitely safe since we know for sure that one among the non-highlighted hidden cells must be a mine (from the `2`) and the `1` then guarantees that the three highlighted hidden cells will not be a mine.
 
 A particular revealed cell can be directly constrained by revealed neighbours up to a depth of 2 (see case 3 above). In implementation, this is essentially just set intersection and complement operations across the set of hidden cells constrained by each revealed cell in the depth-2 neighbourhood.
 
@@ -73,13 +73,13 @@ The previous case only considers neighbouring revealed cells whose constraints o
 1   1   1   2   ■   1
 ```
 
-In the example above, the highlighted cell is definitely not a mine. We know that since only one amongst the rightmost hidden cells can be a mine, which implies that only one among the hidden cells at column 3 and 4 can be a mine. Therefore, from the 1 at column 3, we can deduce that the highlighted cell is safe.
+In the example above, the highlighted cell is definitely not a mine. We know that since only one amongst the rightmost hidden cells can be a mine, which implies that only one among the hidden cells at column 3 and 4 can be a mine. Therefore, from the `1` at column 3, we can deduce that the highlighted cell is safe.
 
 Such chains can extend to any length, so we'll rely on backtracking through the unknown region to find more deductions. Before that, some terminology:
 1. **Frontier**: All the hidden cells that are directly being affected by one or more revealed cells. Marks the edge of the unknown region.
 2. **Interior**: Every hidden cell that's not part of the frontier.
 
-Essentially, what we'll do is backtrack across all mine positions in the frontier and shortlist those that satisfy all the known constraints. Any cell that was flagged across every valid solution is guaranteed to be a mine and any cell that isn't flagged in any valid solution is definitely safe.
+Essentially, what we'll do is backtrack across all mine positions in the frontier and shortlist those that satisfy all the known constraints. Any cell that was flagged across every valid solution is guaranteed to be a mine and any cell that wasn't flagged in any valid solution is definitely safe.
 
 This is the single most time-consuming step of the whole process, and likely the one with the most scope for future improvements. In any case, here are some easy optimizations to reduce the depth of the search space.
 1. The frontier can be split into disjoint components, based on the overlap of revealed cells that constrain each component. Think of a board with the centre entirely revealed, with two pools of hidden cells on either end. There's nothing connecting both these frontiers, so that breaks it down to two separate searches instead of one big tree. And in the world of exponents, that's a significant saving!
@@ -92,7 +92,7 @@ This is the single most time-consuming step of the whole process, and likely the
 #### Loop
 
 1. Run the two simple cases across the board.
-2. If the simple cases run out of moves, run the expensive case until we make progress on each disjoint component of the frontier. Then try the simple cases again.
+2. If the simple cases run out of moves, run the expensive backtracking case until we make progress on each disjoint component of the frontier. Then try the simple cases again.
 3. When even backtracking is unable to proceed, we've exhausted all possible logical deductions!!
 
 {{<image src="./stuck.png" height="300px" caption="4 mines to flag. No logical deductions left to make.">}}
@@ -111,15 +111,15 @@ Then we re-run the solver and hope we make more progress. If the solver does run
 
 If not, then we need to re-run the perturber. But how many times will we keep doing that? Well, a simple (vibes-based) heuristic for that is, each subsequent run of the perturber must take fewer perturbations to get to a solved state. If it does take more, then we've made the board worse with this round of perturbations. Time to abandon ship and start over with a whole new board. Based on some rather non-rigorous local testing, a 30×24 board with 200 mines usually only takes up to 3 rounds of perturbations before it becomes solvable. In any case, all the optimizations from earlier were just to ensure that we're able to run through all of this before the user notices any delay. Across all standard difficulty levels, we're able to generate a solvable board in less than 100 ms. Good enough, I say!
 
-There are some edge cases I've not mentioned above, for example, when the interior is completely enclosed by flagged cells, leaving us with no frontier and no deductions to proceed with. If you've made it this far, I trust you to figure this one out.
+There are some edge cases I've not mentioned above, for example, when the interior is completely enclosed by flagged cells, leaving us with no frontier and no deductions to proceed with. If you've made it this far, I trust you to figure this one out. And if you're thinking, "Talk is cheap. Show me the code", [here](https://github.com/clifordjoshy/minesweep.rs) you go.
 
 ## Guesses be gone
 
 And we're done! We have a logically solvable minesweeper game at our fingertips. Onwards to the UI.
 
-This was my first experience with Rust, and I've got to say, I can see the appeal. All the syntactic sugar and the general functional programming paradigms when working with iterators are quite nice! As with all beginners, I started off fighting the borrow checker, but it eventually started making perfect sense. I used [egui](https://github.com/emilk/egui) to build the app, mostly because it seemed like the least effort to build a simple GUI. Overall, the Rust ecosystem genuinely seems pretty solid, and all the [No Boilerplate](https://www.youtube.com/playlist?list=PLZaoyhMXgBzoM9bfb5pyUOT3zjnaDdSEP) Rust videos filling my YouTube feed definitely helped push me along. I'm glad to finally feel deserving of the Rust sticker I've been carrying around on my laptop for the past couple of years. Kerala Rustaceans, here I come!
+This was my first experience with Rust, and I've got to say, I can see the appeal. All the syntactic sugar and the general functional programming paradigms when working with iterators are quite nice. As with all beginners, I started off fighting the borrow checker, but it eventually started making perfect sense. I used [egui](https://github.com/emilk/egui) to build the app, mostly because it seemed like the least effort to build a simple GUI. Overall, the Rust ecosystem seems pretty solid, and all the [No Boilerplate](https://www.youtube.com/playlist?list=PLZaoyhMXgBzoM9bfb5pyUOT3zjnaDdSEP) Rust videos filling my YouTube feed definitely helped push me along. I'm glad to finally feel deserving of the Rust sticker I've been carrying around on my laptop for the past couple of years. Kerala Rustaceans, here I come!
 
-Another benefit of building it in Rust is that it's pretty straightforward to compile it into WASM. The WebAssembly build of `minesweep.rs` is available at [/demos/minesweeper](/demos/minesweeper), and in the iframe below. Hope I've drilled enough interest in you to try your hand at one game at the very least. Good luck!
+Another benefit of building it in Rust is that it's pretty straightforward to compile it into WASM. The WebAssembly build of `minesweep.rs` is available at [/demos/minesweeper](/demos/minesweeper), and in the iframe below. I hope my yapping has awakened enough interest in you to try your hand at a game. Good luck!
 
 {{<raw >}}
 <iframe
