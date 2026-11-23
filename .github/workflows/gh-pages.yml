@@ -1,23 +1,36 @@
-name: github pages
+name: hugo and latex build
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
   schedule:
     # Run at 01:01 UTC on January 1st of every year
     - cron: "1 1 1 1 *"
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: true
 
 jobs:
   deploy:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
 
+      - name: Check resume PDF cache
+        id: resume-cache
+        uses: actions/cache@v4
+        with:
+          path: static/resume.pdf
+          key: resume-${{ hashFiles('resume/**') }}
+
       - name: Compile Resume
+        if: steps.resume-cache.outputs.cache-hit != 'true'
         uses: xu-cheng/latex-action@v3
         with:
           working_directory: resume
