@@ -4,7 +4,7 @@ date: 2026-11-22T15:43:51+05:30
 tags: ["technical", "native-app", "web"]
 ---
 
-## Preface
+## preface
 
 I used to love playing Minesweeper back in the WinXP (and later Win7) days. However, I had one big gripe with it: you spend 10 minutes solving a board only to end up in a situation where you have to make a random guess on what cell is the mine. Tried so hard, got so far, only to lose it all to that frowny face🙁. I had no choice back then, but now that I'm old enough to fight my own battles, I've finally decided to take this off my to-do list.
 
@@ -16,7 +16,7 @@ You're given a grid of hidden cells, some of which contain mines. The aim is to 
 
 {{<image src="https://minesweepergame.com/image/strategy/windows-xp-minesweeper.png" height="300px" href="https://minesweepergame.com/strategy/how-to-play-minesweeper.php" caption="the WinXP version I used to play">}}
 
-## Prior Art
+## prior art
 
 
 Others have tried (and succeeded) in solving this annoyance. Some of the interesting implementations I've seen:
@@ -24,18 +24,18 @@ Others have tried (and succeeded) in solving this annoyance. Some of the interes
 2. **[Minesweepr](https://mrgris.com/projects/minesweepr/) by Drew Roos**: Don't think I'm good enough at math to describe it any better than the original author. _It can solve any board, with any topology, and exactly compute every cell's chance of being a mine. It achieves this through advanced combinatorial and probability analysis._ Though not exactly a "solvable Minesweeper", I still thought this was a pretty cool way to get around random guesses (and I suppose what more [advanced players](https://minesweepergame.com/strategy/guessing.php) would intuitively do?)
 3. **[Mines](https://www.chiark.greenend.org.uk/~sgtatham/quasiblog/mines-solver/) by Simon Tatham**: I'll admit that this was the inspiration for this whole project, and probably the first time I realized it was even possible to do something about this. The linked blog post (+ [this one](https://www.chiark.greenend.org.uk/~sgtatham/puzzles/devel/writing.html)) served as a good starting point. I think a lot of the ideas he suggests are very vibes-based, but his experience (see: [puzzle collection](https://www.chiark.greenend.org.uk/~sgtatham/puzzles/)) really shows when those intuitions turn out to be right. I'd highly recommend reading the original post if you're setting out on a similar journey. The rest of this post covers my own attempt at these ideas, but of course, the implementation is completely independent (and in Rust!).
 
-## Implementation
+## implementation
 
 At a high level, we achieve a solvable board by running a solver that applies the same deductions a human player would. Whenever the solver gets stuck, we run a "perturber" that moves one or more mines around, allowing the solver to make at least one new deduction. We repeat this process until the board is guaranteed to be logically solvable.
 
-### Solver
+### solver
 
 You might have already guessed from the SAT-reduction above, but solving a Minesweeper board is NP-complete ([Kaye, 2000](https://link.springer.com/article/10.1007/BF03025367)). However, for the standard board sizes (and quite a bit more), we can run the perturb-solve loop fast enough that it's basically unnoticeable. We can of course only do this after the first click, since the start position decides the state of the board.
 
 As I see it, the solver essentially comes down to three cases.
 
-#### Cases
-##### Count Match
+#### cases
+##### count match
 
 ```text
 1.┌─────────┐  2.┌─────────┐
@@ -48,7 +48,7 @@ This is the simplest case.
 1. If the number of hidden cells around a revealed cell matches the number of the revealed cell, then every other hidden cell around it must be safe.
 2. If the total number of hidden cells around a revealed cell matches the number of the revealed cell, then all of the hidden cells must be mines and can be flagged.
 
-##### Neighbour Constraining
+##### neighbour constraining
 
 ```text
 1.┌─────────────┐  2.┌─────────────────┐  3.┌─────────────┐
@@ -64,7 +64,7 @@ The constraints imposed by one revealed cell can be narrowed down using those im
 
 A particular revealed cell can be directly constrained by revealed neighbours up to a depth of 2 (see case 3 above). In implementation, this is essentially just set intersection and complement operations across the set of hidden cells constrained by each revealed cell in the depth-2 neighbourhood.
 
-##### Frontier Backtracking
+##### frontier backtracking
 
 The previous case only considers neighbouring revealed cells whose constraints overlap in the hidden cells they affect. However, it's possible that there's a chain of constraints that would allow us to make a new deduction.
 
@@ -89,7 +89,7 @@ This is the single most time-consuming step of the whole process, and likely the
 5. (definitely more stuff to be figured out)
 
 
-#### Loop
+#### loop
 
 1. Run the two simple cases across the board.
 2. If the simple cases run out of moves, run the expensive backtracking case until we make progress on each disjoint component of the frontier. Then try the simple cases again.
@@ -97,7 +97,7 @@ This is the single most time-consuming step of the whole process, and likely the
 
 {{<image src="./stuck.png" height="300px" caption="4 mines to flag. No logical deductions left to make.">}}
 
-### Perturber
+### perturber
 
 This step is surprisingly simple, and very much inspired by the aforementioned post. The idea is that we'll make the simplest set of changes possible to unblock at least one new deduction.
 
@@ -113,9 +113,11 @@ If not, then we need to re-run the perturber. But how many times will we keep do
 
 There are some edge cases I've not mentioned above, for example, when the interior is completely enclosed by flagged cells, leaving us with no frontier and no deductions to proceed with. If you've made it this far, I trust you to figure this one out. And if you're thinking, "Talk is cheap. Show me the code", [here](https://github.com/clifordjoshy/minesweep.rs) you go.
 
-## Guesses be gone
+## guesses be gone
 
-And we're done! We have a logically solvable minesweeper game at our fingertips. Onwards to the UI.
+And we're done! We have a logically solvable minesweeper game at our fingertips.
+
+{{<image src="./guarantee.jpg" height="300px" caption="for all my akkara kazhchakal homies">}}
 
 This was my first experience with Rust, and I've got to say, I can see the appeal. All the syntactic sugar and the general functional programming paradigms when working with iterators are quite nice. As with all beginners, I started off fighting the borrow checker, but it eventually started making perfect sense. I used [egui](https://github.com/emilk/egui) to build the app, mostly because it seemed like the least effort to build a simple GUI. Overall, the Rust ecosystem seems pretty solid, and all the [No Boilerplate](https://www.youtube.com/playlist?list=PLZaoyhMXgBzoM9bfb5pyUOT3zjnaDdSEP) Rust videos filling my YouTube feed definitely helped push me along. I'm glad to finally feel deserving of the Rust sticker I've been carrying around on my laptop for the past couple of years. Kerala Rustaceans, here I come!
 
