@@ -25,7 +25,7 @@ email = "reach@cliford.net"
 
 [params.header]
 [params.header.title]
-logo = "./icon.svg"
+logo = "/icon.svg"
 name = ""
 pre = ""
 post = ""
