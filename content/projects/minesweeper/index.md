@@ -1,5 +1,5 @@
 ---
-title: "Minesweep.rs - an oxidized no guess Minesweeper"
+title: "Minesweep.rs - a no guess Minesweeper"
 subtitle: "an implementation of Minesweeper that guarantees that boards are solvable without having to guess"
 date: 2026-11-21T09:47:50+05:30
 tools: ["rust", "egui", "wasm"]
@@ -19,9 +19,9 @@ The original version of Minesweeper in Windows XP does not guarantee that every 
 
 We achieve this by running a solver that applies the same deductions a human player would. Whenever the solver gets stuck, we run a "perturber" that moves one or more mines around, allowing the solver to make at least one new deduction. We repeat this process until the board is guaranteed to be solvable. I've gone into more detail about the approach in the accompanying [post]({{<relref "/posts/minesweeper">}}).
 
-Solving a Minesweeper board is NP-complete ([Kaye, 2000](https://link.springer.com/article/10.1007/BF03025367)). However, for the standard board sizes (and quite a bit more), we can run the perturb-solve loop fast enough (<1s) that it's basically unnoticeable. We can of course only do this after the first click, since the start position decides the state of the board.
+Solving a Minesweeper board is NP-complete ([Kaye, 2000](https://link.springer.com/article/10.1007/BF03025367)). However, for the standard board sizes (and quite a bit more), we can run the perturb-solve loop fast enough that it's basically unnoticeable. We can of course only do this after the first click, since the start position decides the state of the board.
 
-Some quick benchmarks on time taken to build a solvable board, sampled across a 1000 random boards.
+Some quick benchmarks on time taken to build a solvable board, sampled across a 1000 random boards per difficulty.
 
 | Difficulty | Mine Density | Median | P99 |
 | --- | --- | --- | --- |
@@ -34,13 +34,11 @@ Some quick benchmarks on time taken to build a solvable board, sampled across a 
 
 ## Personal Notes
 
-This was my first time actually using Rust to build something, and I can definitely see the appeal. It feels like a nice modern language with all the syntactic sugar and is fast too. On the project, this has been on my to-do list for the longest time, and I'm glad I finally have my very own solvable Minesweeper!
+This was my first experience with Rust, and I've got to say, I can see the appeal. All the syntactic sugar and the general functional programming paradigms when working with iterators are quite nice. On the project, this has been on my to-do list for the longest time, and I'm glad I finally have my very own solvable Minesweeper!
 
-Another benefit of building it in Rust is that it compiled to WASM with little to no effort at my end. And thanks to that, I can offer to you a live working demo right here on this page.
+Another benefit of building it in Rust is that it's pretty straightforward to compile it into WASM. The WebAssembly build of `minesweep.rs` is available at [/demos/minesweeper](/demos/minesweeper), and in the iframe below.
 
 ## Demo
-
-The WebAssembly build of `minesweep.rs` is available at [/demos/minesweeper](/demos/minesweeper), and in the iframe below.
 
 {{<raw >}}
 <iframe

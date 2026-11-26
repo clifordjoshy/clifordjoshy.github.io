@@ -93,7 +93,7 @@ This is the single most time-consuming step of the whole process, and likely the
 
 1. Run the two simple cases across the board.
 2. If the simple cases run out of moves, run the expensive backtracking case until we make progress on each disjoint component of the frontier. Then try the simple cases again.
-3. When even backtracking is unable to proceed, we've exhausted all possible logical deductions!!
+3. When even backtracking is unable to proceed, we've exhausted all possible logical deductions.
 
 {{<image src="./stuck.png" height="300px" caption="4 mines to flag. No logical deductions left to make.">}}
 

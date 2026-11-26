@@ -14,9 +14,9 @@
     <!-- config for our rust wasm binary. go to https://trunk-rs.github.io/trunk/guide/assets/#rust for more customization -->
     
 <script type="module">
-import init, * as bindings from './gui.js';
+import init, * as bindings from './minesweep_rs.js';
 
-const wasm = await init({ module_or_path: './gui_bg.wasm' });
+const wasm = await init({ module_or_path: './minesweep_rs_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -126,7 +126,7 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
         }
       }
     </style>
-  <link rel="modulepreload" href="./gui.js" crossorigin="anonymous" integrity="sha384-pmEhwiKSnXKaZKQ+4AaqK+KD9QS3k7FKW3l5Y/pmkDnvihdUeI90zMLLLJH38Q+N"><link rel="preload" href="./gui_bg.wasm" crossorigin="anonymous" integrity="sha384-IPn5KlYWeUtcbHWTW1KfVOnOwqJ0jnLy853CB0dhQ7ubNlqLP78998n0oHqmumuI" as="fetch" type="application/wasm"></head>
+  <link rel="modulepreload" href="./minesweep_rs.js" crossorigin="anonymous" integrity="sha384-NGjsg5U/Awh3/ET0EHFOAPGxJ4bzAxOOuL43kTlrR5llLob0mCgi1VDf2WtDBQ9o"><link rel="preload" href="./minesweep_rs_bg.wasm" crossorigin="anonymous" integrity="sha384-6DoAcsNJqBJq6hp3/zbQcG0gi0Nfn2xaIKYnJ2uKyl59wuAn4KlUCEcHaG7++T3J" as="fetch" type="application/wasm"></head>
 
   <body>
     <!-- The WASM code will resize the canvas dynamically -->
