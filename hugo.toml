@@ -10,6 +10,7 @@ tool = "tools"
 main = [
   { weight = 1, name = "posts", url = "/posts/", title = "all my blog posts" },
   { weight = 2, name = "projects", url = "/projects/", title = "small write-ups about my personal projects" },
+  { weight = 2, name = "reading", url = "/reading/", title = "what i'm reading" },
   { weight = 3, name = "resume", post = '<i class="fa fa-external-link" aria-hidden="true"></i>', url = "/resume.pdf", title = "my resume (pdf)" },
 ]
 
@@ -94,3 +95,6 @@ cursorSpeed = 1000
 cursorChar = "|"
 # cursor duration after typing finishing (measured in milliseconds, "-1" means unlimited)
 duration = -1
+
+[security]
+enableInlineShortcodes = true
