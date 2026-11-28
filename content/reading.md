@@ -27,8 +27,10 @@ _Auto-generated from [BookWyrm](https://bookwyrm.social/user/paperstache/books?s
   {{- end -}}
 {{- end -}}
 
-{{- if not (.Page.Store.Get "bookshelf-css") -}}
-{{- .Page.Store.Set "bookshelf-css" true -}}
+{{- if not (.Page.Store.Get "bookshelf-scripts") -}}
+{{- .Page.Store.Set "bookshelf-scripts" true -}}
+{{- $loading := resources.Get "svg/loading.svg" | minify -}}
+
 <style>
   .book-shelf-container {
     margin: 20px 0;
@@ -60,6 +62,7 @@ _Auto-generated from [BookWyrm](https://bookwyrm.social/user/paperstache/books?s
     object-fit: cover;
     display: block;
     margin: 0;
+    transition: opacity .2s ease;
   }
   .book-shelf .book .no-cover {
     width: 100%;
@@ -105,13 +108,40 @@ _Auto-generated from [BookWyrm](https://bookwyrm.social/user/paperstache/books?s
     border-radius: 4px;
   }
 </style>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.img-spinner').forEach(function (wrapper) {
+    var img = wrapper.querySelector('img');
+    if (img.complete) {
+      return;
+    }
+
+    var loader = document.createElement('img');
+    loader.src = '{{ $loading.RelPermalink | safeURL }}';
+    loader.style.objectFit = 'scale-down';
+    loader.style.width = '100%';
+    loader.style.height = '100%';
+
+    function clearLoader() {
+      loader.remove();
+      img.style.opacity = '1';
+    }
+
+    img.style.opacity = '0';
+    wrapper.insertBefore(loader, img);
+
+    img.addEventListener('load', clearLoader, { once: true });
+    img.addEventListener('error', clearLoader, { once: true });
+  });
+});
+</script>
 {{- end -}}
 
 <div class="book-shelf-container">
 <div class="book-shelf">
   {{- range $items -}}
     {{- $book := . -}}
-    <a class="book" href="{{ $book.id }}" target="_blank" rel="noopener" aria-label="{{ $book.title }}">
+    <a class="book img-spinner" href="{{ $book.id }}" target="_blank" rel="noopener" aria-label="{{ $book.title }}">
       {{- with $book.cover -}}
         <img src="{{ .url }}" alt="{{ $book.title }}" loading="lazy">
       {{- else -}}
